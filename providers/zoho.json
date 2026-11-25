@@ -1,0 +1,46 @@
+{
+  "slug": "zoho",
+  "name": "Zoho Mail",
+  "domains": [
+    "zoho.com",
+    "zohomail.com"
+  ],
+  "mx_patterns": [
+    "zoho.com"
+  ],
+  "client_access": true,
+  "incoming": {
+    "imap": {
+      "host": "imap.zoho.com",
+      "port": 993,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "outgoing": {
+    "smtp": {
+      "host": "smtp.zoho.com",
+      "port": 465,
+      "security": "ssl",
+      "security_documented": true,
+      "alternative": {
+        "port": 587,
+        "security": "starttls"
+      }
+    }
+  },
+  "username": "Your Zoho username or full Zoho Mail address",
+  "authentication": null,
+  "notes": [
+    "Turn on IMAP Access first: Settings › Mail Accounts › your address › IMAP.",
+    "Paid organisation accounts (you@yourdomain.com) use imappro.zoho.com and smtppro.zoho.com instead.",
+    "Your account’s Server Configuration Details shows the exact servers for your data centre — use those if they differ.",
+    "IMAP isn’t available to newly signed-up free-plan users."
+  ],
+  "undocumented": [],
+  "sources": [
+    "https://www.zoho.com/mail/help/imap-access.html"
+  ],
+  "guide": "https://emails.help/zoho-mail/server-settings",
+  "verified": "2026-10-23"
+}

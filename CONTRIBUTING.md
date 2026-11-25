@@ -10,7 +10,8 @@ The whole value of this dataset is that its values can be trusted. One rule prot
 
 1. Create or edit `providers/<slug>.json`. The filename is the `slug`.
 2. Fill it in the shape below. Validate it against [`schema/provider.schema.json`](schema/provider.schema.json).
-3. Open a pull request. In the description, say **which page you read the values from** and the date you checked it.
+3. Run `python3 scripts/validate.py --rebuild` to validate the entries and refresh the combined JSON.
+4. Open a pull request. In the description, say **which page you read the values from** and the date you checked it.
 
 CI validates the file against the schema and the rules below. You can run the same check locally:
 
@@ -24,7 +25,7 @@ python3 scripts/validate.py
 |---|---|
 | `slug` | lowercase identifier, matches the filename |
 | `name` | the provider's own name for itself |
-| `domains` | the address domains people type (`gmail.com`, `googlemail.com`) |
+| `domains` | the address domains people type (`gmail.com`, `googlemail.com`), or an empty array when the provider is matched only by MX |
 | `mx_patterns` | MX host suffixes, so a custom domain on this provider resolves |
 | `client_access` | `false` if the provider offers no IMAP/SMTP at all |
 | `incoming.imap` / `incoming.pop3` | `{ host, port, security, security_documented }` |

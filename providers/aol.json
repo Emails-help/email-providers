@@ -1,0 +1,42 @@
+{
+  "slug": "aol",
+  "name": "AOL Mail",
+  "domains": [
+    "aol.com"
+  ],
+  "mx_patterns": [],
+  "client_access": true,
+  "incoming": {
+    "imap": {
+      "host": "imap.aol.com",
+      "port": 993,
+      "security": "ssl",
+      "security_documented": true
+    },
+    "pop3": {
+      "host": "pop.aol.com",
+      "port": 995,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "outgoing": {
+    "smtp": {
+      "host": "smtp.aol.com",
+      "port": 465,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "username": "Your full email address",
+  "authentication": "An app password from your AOL Account Security page — unless your app signs in through AOL’s own sign-in page.",
+  "notes": [
+    "IMAP keeps the app and mail.aol.com in sync; POP only downloads the Inbox."
+  ],
+  "undocumented": [],
+  "sources": [
+    "https://help.aol.com/articles/how-do-i-use-other-email-applications-to-send-and-receive-my-aol-mail"
+  ],
+  "guide": "https://emails.help/aol-mail/server-settings",
+  "verified": "2026-10-23"
+}

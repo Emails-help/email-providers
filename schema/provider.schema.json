@@ -5,6 +5,13 @@
   "description": "One email provider's connection settings, with provenance. Every value must be traceable to the provider's own documentation listed in `sources`.",
   "type": "object",
   "required": ["slug", "name", "domains", "sources"],
+  "anyOf": [
+    { "properties": { "domains": { "minItems": 1 } } },
+    {
+      "required": ["mx_patterns"],
+      "properties": { "mx_patterns": { "minItems": 1 } }
+    }
+  ],
   "additionalProperties": false,
   "properties": {
     "slug": {
@@ -16,7 +23,7 @@
     "domains": {
       "type": "array",
       "items": { "type": "string", "format": "hostname" },
-      "minItems": 1
+      "description": "Address domains. Empty when a provider is identified only by MX."
     },
     "mx_patterns": {
       "type": "array",

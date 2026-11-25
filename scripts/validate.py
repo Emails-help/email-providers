@@ -12,6 +12,8 @@ first, so a contributor fixes them in one pass.
 """
 from __future__ import annotations
 
+import argparse
+from datetime import datetime, timezone
 import json
 import pathlib
 import sys
@@ -25,7 +27,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SCHEMA = json.loads((ROOT / "schema" / "provider.schema.json").read_text())
 VALIDATOR = Draft7Validator(SCHEMA)
 
-SECURITY_FIELDS = ("imap", "pop3", "smtp")
+COMBINED = ROOT / "dist" / "email-providers.json"
 
 
 def servers(provider: dict):
@@ -43,9 +45,11 @@ def check(path: pathlib.Path) -> list[str]:
         return [f"{path.name}: not valid JSON — {exc}"]
 
     # 1. Schema.
-    for error in sorted(VALIDATOR.iter_errors(data), key=lambda e: e.path):
+    for error in sorted(VALIDATOR.iter_errors(data), key=lambda e: e.json_path):
         where = "/".join(str(p) for p in error.path) or "(root)"
         problems.append(f"{path.name}: {where}: {error.message}")
+    if problems:
+        return problems
 
     # 2. The filename is the slug. A mismatch means one of them is wrong, and
     #    tooling that reads by slug and tooling that reads by filename would
@@ -71,6 +75,8 @@ def check(path: pathlib.Path) -> list[str]:
         documented = server.get("security_documented", False)
         if security is not None and not documented:
             problems.append(f"{path.name}: {kind} has a security value but security_documented is false — set it true, or null the value")
+        if security is None and documented:
+            problems.append(f"{path.name}: {kind} security is null but security_documented is true")
         if security is None and f"{kind}_security" not in undocumented and data.get("client_access", True):
             problems.append(f"{path.name}: {kind} security is null but '{kind}_security' is not listed in `undocumented` — declare the gap")
 
@@ -78,7 +84,10 @@ def check(path: pathlib.Path) -> list[str]:
 
 
 def main() -> int:
-    files = sorted((ROOT / "providers").glob("*.json"))
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--rebuild", action="store_true", help="Refresh the combined JSON from the provider files.")
+    args = parser.parse_args()
+    files = sorted((ROOT / "providers").glob("*.json"), key=lambda path: path.stem)
     if not files:
         print("No provider files found under providers/.")
         return 1
@@ -93,7 +102,35 @@ def main() -> int:
             print("  " + p)
         return 1
 
-    print(f"✓ {len(files)} provider file(s) valid.")
+    providers = [json.loads(path.read_text(encoding="utf-8")) for path in files]
+    try:
+        combined = json.loads(COMBINED.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        print(f"Could not read dist/email-providers.json: {exc}")
+        return 1
+    if not isinstance(combined, dict):
+        print("dist/email-providers.json must contain a JSON object.")
+        return 1
+
+    combined_providers = combined.get("providers")
+    matches = (
+        combined.get("count") == len(providers)
+        and isinstance(combined_providers, list)
+        and all(isinstance(row, dict) and isinstance(row.get("slug"), str) for row in combined_providers)
+        and sorted(combined_providers, key=lambda row: row["slug"]) == providers
+    )
+    if not matches:
+        if not args.rebuild:
+            print("dist/email-providers.json differs from providers/. Run python3 scripts/validate.py --rebuild.")
+            return 1
+        combined.update(
+            generated_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            count=len(providers),
+            providers=providers,
+        )
+        COMBINED.write_text(json.dumps(combined, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    print(f"✓ {len(files)} provider file(s) valid. Combined JSON matches.")
     return 0
 
 

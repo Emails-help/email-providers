@@ -1,11 +1,12 @@
 This folder holds one JSON file per provider, named <slug>.json.
 
-Generate or refresh them from the canonical dataset with:
+The canonical source is the [Emails.help dataset](https://emails.help/api/email-providers.json).
+In the Laravel project, `php artisan dataset:export --path=/path/to/email-providers.json`
+exports the combined source. To refresh this repo, copy each entry from the
+export's `providers` array to its matching file here.
 
-    php artisan dataset:export --split=providers
+After editing these files, rebuild and validate the combined consumer file:
 
-and the combined consumer file with:
-
-    php artisan dataset:export --path=dist/email-providers.json
+    python3 scripts/validate.py --rebuild
 
 See CONTRIBUTING.md to add or correct a provider by hand.

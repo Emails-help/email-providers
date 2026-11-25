@@ -1,0 +1,40 @@
+{
+  "slug": "web-de",
+  "name": "WEB.DE",
+  "domains": [
+    "web.de"
+  ],
+  "mx_patterns": [],
+  "client_access": true,
+  "incoming": {
+    "imap": {
+      "host": "imap.web.de",
+      "port": 993,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "outgoing": {
+    "smtp": {
+      "host": "smtp.web.de",
+      "port": 587,
+      "security": "starttls",
+      "security_documented": true,
+      "alternative": {
+        "port": 465,
+        "security": "ssl"
+      }
+    }
+  },
+  "username": "Your full email address",
+  "authentication": null,
+  "notes": [
+    "POP3 or IMAP has to be switched on in your WEB.DE settings before you can use them."
+  ],
+  "undocumented": [],
+  "sources": [
+    "https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html"
+  ],
+  "guide": null,
+  "verified": null
+}

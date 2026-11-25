@@ -1,0 +1,58 @@
+{
+  "slug": "centurylink",
+  "name": "CenturyLink Email",
+  "domains": [
+    "centurylink.net",
+    "centurytel.net",
+    "clds.net",
+    "coastalnow.net",
+    "cochill.net",
+    "cswnet.com",
+    "elpasotel.net",
+    "embarqmail.com",
+    "emadisonriver.com",
+    "emadisonriver.net",
+    "gallatinriver.net",
+    "grics.net",
+    "gulftel.com",
+    "madisonriver.biz",
+    "mebtel.net",
+    "qwest.net"
+  ],
+  "mx_patterns": [],
+  "client_access": true,
+  "incoming": {
+    "imap": {
+      "host": "mail.centurylink.net",
+      "port": 993,
+      "security": "ssl",
+      "security_documented": true
+    },
+    "pop3": {
+      "host": "pop.centurylink.net",
+      "port": 995,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "outgoing": {
+    "smtp": {
+      "host": "smtp.centurylink.net",
+      "port": 587,
+      "security": "starttls",
+      "security_documented": true
+    }
+  },
+  "username": "Your full email address",
+  "authentication": null,
+  "notes": [
+    "CenturyLink moved all email to a new service in October 2022 — apps set up before then may need these updated settings.",
+    "qwestoffice.net uses different servers (pop.qwestoffice.net and smtp.qwestoffice.net)."
+  ],
+  "undocumented": [],
+  "sources": [
+    "https://www.centurylink.com/home/help/internet/email/how-to-set-up-your-email-server-settings-to-go-through-pop-and-smtp.html"
+  ],
+  "guide": "https://emails.help/centurylink/server-settings",
+  "verified": "2026-10-29"
+}

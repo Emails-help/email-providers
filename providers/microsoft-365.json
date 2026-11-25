@@ -1,0 +1,43 @@
+{
+  "slug": "microsoft-365",
+  "name": "Microsoft 365",
+  "domains": [],
+  "mx_patterns": [
+    "mail.protection.outlook.com"
+  ],
+  "client_access": true,
+  "incoming": {
+    "imap": {
+      "host": "outlook.office365.com",
+      "port": 993,
+      "security": "ssl",
+      "security_documented": true
+    },
+    "pop3": {
+      "host": "outlook.office365.com",
+      "port": 995,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "outgoing": {
+    "smtp": {
+      "host": "smtp.office365.com",
+      "port": 587,
+      "security": "starttls",
+      "security_documented": true
+    }
+  },
+  "username": "Your full email address",
+  "authentication": "Your work or school account password. Turn on “My outgoing server requires authentication” and leave Secure Password Authentication off.",
+  "notes": [
+    "Your organisation’s administrator can turn POP, IMAP or SMTP off for your mailbox. If these settings don’t work, ask them first.",
+    "Accounts operated by 21Vianet (China) use different servers."
+  ],
+  "undocumented": [],
+  "sources": [
+    "https://support.microsoft.com/en-us/topic/775748a1-0075-40fd-b630-1d2a84be081a"
+  ],
+  "guide": "https://emails.help/microsoft-365/smtp-settings",
+  "verified": "2026-10-23"
+}

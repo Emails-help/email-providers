@@ -1,0 +1,47 @@
+{
+  "slug": "cox",
+  "name": "Cox Email (Yahoo)",
+  "domains": [
+    "cox.net"
+  ],
+  "mx_patterns": [],
+  "client_access": true,
+  "incoming": {
+    "imap": {
+      "host": "imap.mail.yahoo.com",
+      "port": 993,
+      "security": "ssl",
+      "security_documented": true
+    },
+    "pop3": {
+      "host": "pop.mail.yahoo.com",
+      "port": 995,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "outgoing": {
+    "smtp": {
+      "host": "smtp.mail.yahoo.com",
+      "port": 465,
+      "security": "ssl",
+      "security_documented": true,
+      "alternative": {
+        "port": 587,
+        "security": null
+      }
+    }
+  },
+  "username": "Your full cox.net email address",
+  "authentication": "A Yahoo app password — your regular password won’t work in email apps.",
+  "notes": [
+    "Cox moved all cox.net email to Yahoo Mail; Yahoo now handles cox.net email support."
+  ],
+  "undocumented": [],
+  "sources": [
+    "https://help.yahoo.com/kb/mail/SLN36637.html",
+    "https://www.cox.com/residential/support/coxnet-email-transitioning-to-yahoo.html"
+  ],
+  "guide": "https://emails.help/cox-email/server-settings",
+  "verified": "2026-10-29"
+}

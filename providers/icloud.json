@@ -1,0 +1,39 @@
+{
+  "slug": "icloud",
+  "name": "iCloud Mail",
+  "domains": [
+    "icloud.com"
+  ],
+  "mx_patterns": [
+    "mail.icloud.com"
+  ],
+  "client_access": true,
+  "incoming": {
+    "imap": {
+      "host": "imap.mail.me.com",
+      "port": 993,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "outgoing": {
+    "smtp": {
+      "host": "smtp.mail.me.com",
+      "port": 587,
+      "security": "starttls",
+      "security_documented": true
+    }
+  },
+  "username": "IMAP: usually the part of your address before the @ (try the full address if that fails). SMTP: your full iCloud address.",
+  "authentication": "An app-specific password, generated from your Apple Account — not your normal Apple password.",
+  "notes": [
+    "iCloud Mail doesn’t support POP.",
+    "On Apple devices that meet iCloud’s requirements, use the built-in iCloud settings instead."
+  ],
+  "undocumented": [],
+  "sources": [
+    "https://support.apple.com/en-us/102525"
+  ],
+  "guide": "https://emails.help/icloud-mail/server-settings",
+  "verified": "2026-10-23"
+}

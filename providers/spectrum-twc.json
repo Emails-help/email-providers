@@ -1,0 +1,41 @@
+{
+  "slug": "spectrum-twc",
+  "name": "Spectrum Email (Roadrunner / TWC)",
+  "domains": [
+    "twc.com",
+    "roadrunner.com",
+    "*.rr.com"
+  ],
+  "mx_patterns": [],
+  "client_access": true,
+  "incoming": {
+    "imap": {
+      "host": "mail.twc.com",
+      "port": 993,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "outgoing": {
+    "smtp": {
+      "host": "mail.twc.com",
+      "port": 587,
+      "security": null,
+      "security_documented": false
+    }
+  },
+  "username": "Your full Spectrum-provided email address",
+  "authentication": "Your Spectrum email password. Outgoing mail requires authentication.",
+  "notes": [
+    "Spectrum lists IMAP with SSL on, incoming port 993 and outgoing port 587.",
+    "Two-domain accounts (roadrunner.com / adelphia.net, mi.rr.com / twmi.rr.com, nycap.rr.com / berkshire.rr.com): sign in to email apps with the roadrunner.com, mi.rr.com or nycap.rr.com address."
+  ],
+  "undocumented": [
+    "smtp_security"
+  ],
+  "sources": [
+    "https://www.spectrum.net/support/internet/mobile-email-setup"
+  ],
+  "guide": "https://emails.help/spectrum-email/server-settings",
+  "verified": "2026-10-29"
+}

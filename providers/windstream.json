@@ -1,0 +1,42 @@
+{
+  "slug": "windstream",
+  "name": "Windstream (Kinetic) Email",
+  "domains": [
+    "windstream.net"
+  ],
+  "mx_patterns": [],
+  "client_access": true,
+  "incoming": {
+    "imap": {
+      "host": "imap.windstream.net",
+      "port": 993,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "outgoing": {
+    "smtp": {
+      "host": "smtp.windstream.net",
+      "port": 465,
+      "security": "ssl",
+      "security_documented": true,
+      "alternative": {
+        "port": 587,
+        "security": null
+      }
+    }
+  },
+  "username": "Your full email address",
+  "authentication": null,
+  "notes": [
+    "Windstream recommends IMAP. If one device uses IMAP, set every device to IMAP to avoid “POP lock”.",
+    "Accounts with no Webmail, POP or IMAP activity for 180 days become inactive."
+  ],
+  "undocumented": [],
+  "sources": [
+    "https://www.gokinetic.com/support/my-account/email-101/what-server-settings-do-i-use-for-windstream-email",
+    "https://www.gokinetic.com/support/my-account/email-101/how-do-i-recover-or-reset-my-email-password"
+  ],
+  "guide": "https://emails.help/windstream-email/server-settings",
+  "verified": "2026-10-29"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "juno",
+  "name": "Juno",
+  "domains": [
+    "juno.com"
+  ],
+  "mx_patterns": [],
+  "client_access": true,
+  "incoming": {
+    "pop3": {
+      "host": "pop.juno.com",
+      "port": 995,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "outgoing": {
+    "smtp": {
+      "host": "smtp.juno.com",
+      "port": 465,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "username": "Your full email address (memberid@juno.com)",
+  "authentication": null,
+  "notes": [
+    "Juno publishes no IMAP server — POP3 only. Set “Delete email from server” to Never so a second device and webmail can still see your mail.",
+    "Outgoing mail needs authentication: tick Require Sign-in on the SMTP server.",
+    "Juno’s help pages have not been revised in years — its setup page still lists Outlook Express. Re-check these values against Juno before relying on them."
+  ],
+  "undocumented": [],
+  "sources": [
+    "https://help.juno.com/support/webmail/wm-email-setup.html",
+    "https://help.juno.com/support/webmail/mobile/droid.html"
+  ],
+  "guide": "https://emails.help/juno/server-settings",
+  "verified": "2026-11-02"
+}

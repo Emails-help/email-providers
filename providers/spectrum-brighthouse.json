@@ -1,0 +1,47 @@
+{
+  "slug": "spectrum-brighthouse",
+  "name": "Spectrum Email (Bright House)",
+  "domains": [
+    "brighthouse.com",
+    "bak.rr.com",
+    "bham.rr.com",
+    "cfl.rr.com",
+    "emore.rr.com",
+    "eufala.rr.com",
+    "indy.rr.com",
+    "mi.rr.com",
+    "panhandle.rr.com",
+    "tampabay.rr.com"
+  ],
+  "mx_patterns": [],
+  "client_access": true,
+  "incoming": {
+    "imap": {
+      "host": "mail.brighthouse.com",
+      "port": 993,
+      "security": "ssl",
+      "security_documented": true
+    }
+  },
+  "outgoing": {
+    "smtp": {
+      "host": "mail.brighthouse.com",
+      "port": 587,
+      "security": null,
+      "security_documented": false
+    }
+  },
+  "username": "Your full Spectrum-provided email address",
+  "authentication": "Your Spectrum email password. Outgoing mail requires authentication.",
+  "notes": [
+    "Spectrum lists IMAP with SSL on, incoming port 993 and outgoing port 587."
+  ],
+  "undocumented": [
+    "smtp_security"
+  ],
+  "sources": [
+    "https://www.spectrum.net/support/internet/mobile-email-setup"
+  ],
+  "guide": "https://emails.help/spectrum-email/server-settings",
+  "verified": "2026-10-29"
+}
