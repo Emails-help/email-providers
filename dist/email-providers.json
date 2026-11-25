@@ -1,0 +1,9 @@
+{
+    "version": 1,
+    "generated_at": "2026-11-25T22:09:51+00:00",
+    "source": "https://localhost:8000",
+    "about": "Email server settings, each value taken from the provider's own documentation. A null with a note in \"undocumented\" means the provider does not state that value, not that it is unknown.",
+    "licence": "CC BY 4.0",
+    "count": 0,
+    "providers": []
+}

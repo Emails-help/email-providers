@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://emails.help/schema/provider.schema.json",
+  "title": "Email provider settings",
+  "description": "One email provider's connection settings, with provenance. Every value must be traceable to the provider's own documentation listed in `sources`.",
+  "type": "object",
+  "required": ["slug", "name", "domains", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Lowercase identifier; matches the filename."
+    },
+    "name": { "type": "string", "minLength": 1 },
+    "domains": {
+      "type": "array",
+      "items": { "type": "string", "format": "hostname" },
+      "minItems": 1
+    },
+    "mx_patterns": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "client_access": {
+      "type": "boolean",
+      "description": "False when the provider offers no IMAP or SMTP at all."
+    },
+    "incoming": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "imap": { "$ref": "#/$defs/server" },
+        "pop3": { "$ref": "#/$defs/server" }
+      }
+    },
+    "outgoing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "smtp": {
+          "allOf": [{ "$ref": "#/$defs/server" }],
+          "properties": {
+            "alternative": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "port": { "type": ["integer", "null"] },
+                "security": { "$ref": "#/$defs/security" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "username": { "type": ["string", "null"] },
+    "authentication": { "type": ["string", "null"] },
+    "notes": { "type": "array", "items": { "type": "string" } },
+    "undocumented": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Field names the provider publishes a server for but never specifies."
+    },
+    "sources": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" },
+      "description": "The provider's own page(s) each value was read from."
+    },
+    "guide": { "type": ["string", "null"], "format": "uri" },
+    "verified": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "The date (YYYY-MM-DD) the values were last checked against `sources`."
+    }
+  },
+  "$defs": {
+    "security": {
+      "description": "null means the provider does not state it; pair with an entry in `undocumented`.",
+      "enum": ["ssl", "starttls", "none", null]
+    },
+    "server": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["host"],
+      "properties": {
+        "host": { "type": "string", "format": "hostname" },
+        "port": { "type": ["integer", "null"], "minimum": 1, "maximum": 65535 },
+        "security": { "$ref": "#/$defs/security" },
+        "security_documented": {
+          "type": "boolean",
+          "description": "False when the provider publishes the server but never states its encryption."
+        },
+        "alternative": true
+      }
+    }
+  }
+}
