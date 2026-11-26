@@ -1,0 +1,40 @@
+{
+    "slug": "netzero",
+    "name": "NetZero",
+    "domains": [
+        "netzero.com",
+        "netzero.net"
+    ],
+    "mx_patterns": [],
+    "client_access": true,
+    "incoming": {
+        "pop3": {
+            "host": "pop.netzero.com",
+            "port": 995,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "outgoing": {
+        "smtp": {
+            "host": "smtp.netzero.com",
+            "port": 465,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "username": "Your NetZero Member ID",
+    "authentication": null,
+    "notes": [
+        "NetZero publishes no IMAP server — POP3 only. Set “Delete email from server” to Never so a second device and webmail can still see your mail.",
+        "Webmail is on netzero.net; addresses and mail servers are on netzero.com. A hostname that looks almost right is usually this.",
+        "Outgoing mail needs authentication: tick Require Sign-in on the SMTP server."
+    ],
+    "undocumented": [],
+    "sources": [
+        "https://help.netzero.net/support/webmail/wm-email-setup.html",
+        "https://help.netzero.net/support/webmail/mobile/droid.html"
+    ],
+    "guide": "https://emails.help/netzero/server-settings",
+    "verified": "2026-11-02"
+}

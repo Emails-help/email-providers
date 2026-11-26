@@ -1,0 +1,48 @@
+{
+    "slug": "xfinity",
+    "name": "Xfinity Email (Comcast)",
+    "domains": [
+        "comcast.net"
+    ],
+    "mx_patterns": [],
+    "client_access": true,
+    "incoming": {
+        "imap": {
+            "host": "imap.comcast.net",
+            "port": 993,
+            "security": "ssl",
+            "security_documented": true
+        },
+        "pop3": {
+            "host": "pop3.comcast.net",
+            "port": 995,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "outgoing": {
+        "smtp": {
+            "host": "smtp.comcast.net",
+            "port": 587,
+            "security": "starttls",
+            "security_documented": true,
+            "alternative": {
+                "port": 465,
+                "security": "ssl"
+            }
+        }
+    },
+    "username": "Your full Comcast.net email address",
+    "authentication": "Your Xfinity ID password. Turn on third-party access first: Xfinity Email › Settings › Security › Third Party Access Security.",
+    "notes": [
+        "Port 25 isn’t supported for sending, and POP port 110 no longer works.",
+        "Xfinity recommends IMAP, so mail and folders stay in sync across devices."
+    ],
+    "undocumented": [],
+    "sources": [
+        "https://www.xfinity.com/support/articles/email-client-programs-with-xfinity-email",
+        "https://www.xfinity.com/support/articles/third-party-email-access"
+    ],
+    "guide": "https://emails.help/xfinity-email/server-settings",
+    "verified": "2026-10-29"
+}

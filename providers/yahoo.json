@@ -1,0 +1,38 @@
+{
+    "slug": "yahoo",
+    "name": "Yahoo Mail",
+    "domains": [
+        "yahoo.com"
+    ],
+    "mx_patterns": [],
+    "client_access": true,
+    "incoming": {
+        "imap": {
+            "host": "imap.mail.yahoo.com",
+            "port": 993,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "outgoing": {
+        "smtp": {
+            "host": "smtp.mail.yahoo.com",
+            "port": 465,
+            "security": "ssl",
+            "security_documented": true,
+            "alternative": {
+                "port": 587,
+                "security": null
+            }
+        }
+    },
+    "username": "Your full email address",
+    "authentication": "Yahoo asks you to generate an app password for third-party email apps.",
+    "notes": [],
+    "undocumented": [],
+    "sources": [
+        "https://help.yahoo.com/kb/SLN4075.html"
+    ],
+    "guide": "https://emails.help/yahoo-mail/server-settings",
+    "verified": "2026-10-23"
+}

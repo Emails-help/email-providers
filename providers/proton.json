@@ -1,0 +1,19 @@
+{
+    "slug": "proton",
+    "name": "Proton Mail",
+    "domains": [
+        "proton.me",
+        "protonmail.com"
+    ],
+    "mx_patterns": [
+        "protonmail.ch"
+    ],
+    "client_access": false,
+    "notes": [],
+    "undocumented": [],
+    "sources": [
+        "https://proton.me/support/imap-smtp-and-pop3-setup"
+    ],
+    "guide": "https://emails.help/proton-mail/server-settings",
+    "verified": "2026-10-23"
+}

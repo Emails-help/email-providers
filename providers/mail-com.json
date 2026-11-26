@@ -1,0 +1,51 @@
+{
+    "slug": "mail-com",
+    "name": "mail.com",
+    "domains": [
+        "mail.com"
+    ],
+    "mx_patterns": [
+        "mail.com"
+    ],
+    "client_access": true,
+    "incoming": {
+        "imap": {
+            "host": "imap.mail.com",
+            "port": 993,
+            "security": "ssl",
+            "security_documented": true
+        },
+        "pop3": {
+            "host": "pop.mail.com",
+            "port": 995,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "outgoing": {
+        "smtp": {
+            "host": "smtp.mail.com",
+            "port": 587,
+            "security": "starttls",
+            "security_documented": true,
+            "alternative": {
+                "port": 465,
+                "security": "ssl"
+            }
+        }
+    },
+    "username": "Your full email address",
+    "authentication": null,
+    "notes": [
+        "POP3, IMAP and SMTP are mail.com Premium features only — free accounts use the website or the mail.com Mail app.",
+        "Access is switched off by default: Email › Settings › POP3 & IMAP › “Enable access to this account via POP3 and IMAP”. mail.com turns it off again after long non-use.",
+        "With two-factor authentication on, use an application-specific password in the app."
+    ],
+    "undocumented": [],
+    "sources": [
+        "https://support.mail.com/pop-imap/toggle.html",
+        "https://support.mail.com/pop-imap/setup-emailprogram-fails.html"
+    ],
+    "guide": "https://emails.help/mail-com/server-settings",
+    "verified": null
+}

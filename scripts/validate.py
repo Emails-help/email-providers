@@ -53,6 +53,13 @@ def check(path: pathlib.Path) -> list[str]:
     if data.get("slug") and path.stem != data["slug"]:
         problems.append(f"{path.name}: slug '{data['slug']}' does not match the filename")
 
+    # A provider has to be findable by something. Most are found by the
+    # domain people type; some (GoDaddy, Microsoft 365) are only ever used on
+    # a customer's own domain and are found by their MX hosts instead. One of
+    # the two must be present, or nothing can ever resolve to this entry.
+    if not data.get("domains") and not data.get("mx_patterns"):
+        problems.append(f"{path.name}: has neither `domains` nor `mx_patterns` — nothing could resolve to it")
+
     has_servers = any(True for _ in servers(data))
 
     # 3. A value with no source cannot be verified, and an unverifiable value

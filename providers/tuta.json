@@ -1,0 +1,21 @@
+{
+    "slug": "tuta",
+    "name": "Tuta Mail",
+    "domains": [
+        "tuta.com",
+        "tutanota.com",
+        "tutanota.de",
+        "tutamail.com",
+        "tuta.io",
+        "keemail.me"
+    ],
+    "mx_patterns": [],
+    "client_access": false,
+    "notes": [],
+    "undocumented": [],
+    "sources": [
+        "https://tuta.com/blog/beta-time-is-over-release-notes"
+    ],
+    "guide": "https://emails.help/tuta/server-settings",
+    "verified": null
+}

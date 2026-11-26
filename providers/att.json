@@ -1,0 +1,55 @@
+{
+    "slug": "att",
+    "name": "AT&T Mail",
+    "domains": [
+        "att.net",
+        "sbcglobal.net",
+        "bellsouth.net",
+        "pacbell.net",
+        "prodigy.net",
+        "ameritech.net",
+        "currently.com",
+        "flash.net",
+        "nvbell.net",
+        "snet.net",
+        "swbell.net",
+        "wans.net"
+    ],
+    "mx_patterns": [],
+    "client_access": true,
+    "incoming": {
+        "imap": {
+            "host": "imap.mail.att.net",
+            "port": 993,
+            "security": "ssl",
+            "security_documented": true
+        },
+        "pop3": {
+            "host": "inbound.att.net",
+            "port": 995,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "outgoing": {
+        "smtp": {
+            "host": "smtp.mail.att.net",
+            "port": 465,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "username": "Your full email address",
+    "authentication": "A secure mail key (16 characters, created in your AT&T profile) — unless your app signs in with OAuth, where your AT&T password works.",
+    "notes": [
+        "AT&T also lists port 587 for the IMAP outgoing server.",
+        "With POP3, the outgoing server is outbound.att.net on port 465 with SSL."
+    ],
+    "undocumented": [],
+    "sources": [
+        "https://www.att.com/support/article/email-support/KM1010523/",
+        "https://www.att.com/support/article/email-support/KM1240308/"
+    ],
+    "guide": "https://emails.help/att-mail/server-settings",
+    "verified": "2026-10-29"
+}

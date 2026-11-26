@@ -1,0 +1,40 @@
+{
+    "slug": "suddenlink",
+    "name": "Suddenlink Email (Optimum)",
+    "domains": [
+        "suddenlink.net"
+    ],
+    "mx_patterns": [],
+    "client_access": true,
+    "incoming": {
+        "imap": {
+            "host": "imap.suddenlink.net",
+            "port": 993,
+            "security": "ssl",
+            "security_documented": true
+        },
+        "pop3": {
+            "host": "pop.suddenlink.net",
+            "port": 995,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "outgoing": {
+        "smtp": {
+            "host": "smtp.suddenlink.net",
+            "port": 465,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "username": "Your full email address",
+    "authentication": "The password for your email address. Turn on “My outgoing server requires authentication”.",
+    "notes": [],
+    "undocumented": [],
+    "sources": [
+        "https://www.optimum.net/FAQ/#/answers/a_id/216"
+    ],
+    "guide": "https://emails.help/optimum-email/server-settings",
+    "verified": "2026-10-29"
+}

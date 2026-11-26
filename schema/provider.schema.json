@@ -16,7 +16,7 @@
     "domains": {
       "type": "array",
       "items": { "type": "string", "format": "hostname" },
-      "minItems": 1
+      "description": "The address domains people type. May be empty for a provider used only on customers' own domains (GoDaddy, Microsoft 365); such a provider is resolved by mx_patterns instead."
     },
     "mx_patterns": {
       "type": "array",

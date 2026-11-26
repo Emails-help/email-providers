@@ -1,0 +1,43 @@
+{
+    "slug": "frontier",
+    "name": "Frontier Mail",
+    "domains": [
+        "frontier.com",
+        "frontiernet.net",
+        "citilink.net",
+        "epix.net",
+        "gvni.com",
+        "newnorth.net"
+    ],
+    "mx_patterns": [],
+    "client_access": true,
+    "incoming": {
+        "pop3": {
+            "host": "pop3.frontier.com",
+            "port": 995,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "outgoing": {
+        "smtp": {
+            "host": "smtp.frontier.com",
+            "port": 465,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "username": "Your full email address",
+    "authentication": "Your Frontier email password. The outgoing server requires authentication.",
+    "notes": [
+        "Frontier Mail is powered by Yahoo. Frontier says to use an OAuth-compliant email app; on iPhone it adds Frontier email as a Yahoo account.",
+        "Frontier’s settings page lists POP3 and SMTP only — no IMAP server."
+    ],
+    "undocumented": [],
+    "sources": [
+        "https://frontier.com/helpcenter/categories/internet/email/troubleshooting-email/get-started/mail-server-settings",
+        "https://frontier.com/helpcenter/residential/categories/internet/email/use-frontier-yahoo-mail"
+    ],
+    "guide": "https://emails.help/frontier-mail/server-settings",
+    "verified": "2026-10-29"
+}

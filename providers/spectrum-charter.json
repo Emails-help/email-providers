@@ -1,0 +1,40 @@
+{
+    "slug": "spectrum-charter",
+    "name": "Spectrum Email (Charter)",
+    "domains": [
+        "spectrum.net",
+        "charter.net",
+        "bresnan.net"
+    ],
+    "mx_patterns": [],
+    "client_access": true,
+    "incoming": {
+        "imap": {
+            "host": "mobile.charter.net",
+            "port": 993,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "outgoing": {
+        "smtp": {
+            "host": "mobile.charter.net",
+            "port": 587,
+            "security": null,
+            "security_documented": false
+        }
+    },
+    "username": "Your full Spectrum-provided email address",
+    "authentication": "Your Spectrum email password. Outgoing mail requires authentication.",
+    "notes": [
+        "Spectrum lists IMAP with SSL on, incoming port 993 and outgoing port 587."
+    ],
+    "undocumented": [
+        "smtp_security"
+    ],
+    "sources": [
+        "https://www.spectrum.net/support/internet/mobile-email-setup"
+    ],
+    "guide": "https://emails.help/spectrum-email/server-settings",
+    "verified": "2026-10-29"
+}

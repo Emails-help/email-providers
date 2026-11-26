@@ -1,0 +1,49 @@
+{
+    "slug": "fastmail",
+    "name": "Fastmail",
+    "domains": [
+        "fastmail.com"
+    ],
+    "mx_patterns": [
+        "messagingengine.com"
+    ],
+    "client_access": true,
+    "incoming": {
+        "imap": {
+            "host": "imap.fastmail.com",
+            "port": 993,
+            "security": "ssl",
+            "security_documented": true
+        },
+        "pop3": {
+            "host": "pop.fastmail.com",
+            "port": 995,
+            "security": "ssl",
+            "security_documented": true
+        }
+    },
+    "outgoing": {
+        "smtp": {
+            "host": "smtp.fastmail.com",
+            "port": 465,
+            "security": "ssl",
+            "security_documented": true,
+            "alternative": {
+                "port": 587,
+                "security": "starttls"
+            }
+        }
+    },
+    "username": "Your full email address",
+    "authentication": "An app password — Fastmail doesn’t accept your regular password in email apps.",
+    "notes": [
+        "Don’t turn on Secure Password Authentication (SPA) — it isn’t needed with SSL/TLS and won’t work.",
+        "If your network blocks these ports, Fastmail offers proxy servers (imaps-proxy, pops-proxy, smtps-proxy.fastmail.com)."
+    ],
+    "undocumented": [],
+    "sources": [
+        "https://fastmail.help/hc/en-us/articles/1500000278342"
+    ],
+    "guide": "https://emails.help/fastmail/server-settings",
+    "verified": "2026-10-23"
+}
