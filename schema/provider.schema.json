@@ -23,6 +23,10 @@
       "items": { "type": "string" },
       "default": []
     },
+    "settings_unverified": {
+      "type": "boolean",
+      "description": "True when first-party server settings could not be confirmed. Retained values are historical and must not be used to generate autoconfig files."
+    },
     "client_access": {
       "type": "boolean",
       "description": "False when the provider offers no IMAP or SMTP at all."
