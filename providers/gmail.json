@@ -41,7 +41,8 @@
     "undocumented": [],
     "sources": [
         "https://support.google.com/mail/answer/7104828?hl=en",
-        "https://support.google.com/mail/answer/7126229?hl=en"
+        "https://support.google.com/mail/answer/7126229?hl=en",
+        "https://developers.google.com/gmail/imap"
     ],
     "guide": "https://emails.help/gmail/server-settings",
     "verified": "2026-10-23"
