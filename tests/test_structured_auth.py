@@ -40,7 +40,8 @@ class StructuredAuthValidationTests(unittest.TestCase):
                    for path in sorted((ROOT / "providers").glob("*.json"))]
         combined = json.loads((ROOT / "dist/email-providers.json").read_text(encoding="utf-8"))
         self.assertEqual(combined["count"], len(records))
-        self.assertEqual(sorted(combined["providers"], key=lambda p: p["slug"]), records)
+        self.assertEqual(sorted(combined["providers"], key=lambda p: p["slug"]),
+                         sorted(records, key=lambda p: p["slug"]))
 
 
 if __name__ == "__main__":
