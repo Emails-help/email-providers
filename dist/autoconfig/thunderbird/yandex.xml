@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<clientConfig version="1.1">
+  <!-- Emails.help dataset version 1 -->
+  <emailProvider id="yandex.com">
+    <domain>yandex.com</domain>
+    <displayName>Yandex Mail</displayName>
+    <displayShortName>Yandex Mail</displayShortName>
+    <incomingServer type="imap">
+      <hostname>imap.yandex.com</hostname>
+      <port>993</port>
+      <socketType>SSL</socketType>
+      <username>%EMAILLOCALPART%</username>
+      <authentication>password-cleartext</authentication>
+    </incomingServer>
+    <outgoingServer type="smtp">
+      <hostname>smtp.yandex.com</hostname>
+      <port>465</port>
+      <socketType>SSL</socketType>
+      <username>%EMAILLOCALPART%</username>
+      <authentication>password-cleartext</authentication>
+    </outgoingServer>
+  </emailProvider>
+</clientConfig>
