@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>EmailAccountDescription</key>
+			<string>Yandex Mail</string>
+			<key>EmailAccountType</key>
+			<string>EmailTypeIMAP</string>
+			<key>IncomingMailServerAuthentication</key>
+			<string>EmailAuthPassword</string>
+			<key>IncomingMailServerHostName</key>
+			<string>imap.yandex.com</string>
+			<key>IncomingMailServerPortNumber</key>
+			<integer>993</integer>
+			<key>IncomingMailServerUseSSL</key>
+			<true/>
+			<key>OutgoingMailServerAuthentication</key>
+			<string>EmailAuthPassword</string>
+			<key>OutgoingMailServerHostName</key>
+			<string>smtp.yandex.com</string>
+			<key>OutgoingMailServerPortNumber</key>
+			<integer>465</integer>
+			<key>OutgoingMailServerUseSSL</key>
+			<true/>
+			<key>OutgoingPasswordSameAsIncomingPassword</key>
+			<true/>
+			<key>PayloadIdentifier</key>
+			<string>help.emails.yandex.imap</string>
+			<key>PayloadType</key>
+			<string>com.apple.mail.managed</string>
+			<key>PayloadUUID</key>
+			<string>f5b0e6ed-30ab-5b3c-8549-33c03788a73b</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Emails.help dataset version 1</string>
+	<key>PayloadDisplayName</key>
+	<string>Yandex Mail</string>
+	<key>PayloadIdentifier</key>
+	<string>help.emails.yandex.profile</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>8e520ae9-53ae-5eca-9df2-af2b424a29a7</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
