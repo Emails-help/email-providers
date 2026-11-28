@@ -18,3 +18,6 @@ jobs:
           python-version: '3.12'
       - run: pip install jsonschema
       - run: python3 scripts/validate.py
+      - run: python3 -m unittest discover -s tests
+      - run: python3 scripts/build_autoconfig.py && git diff --exit-code dist/autoconfig
+      - run: python3 scripts/build_autoconfig.py --check

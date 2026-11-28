@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<clientConfig version="1.1">
+  <!-- Emails.help dataset version 1 -->
+  <emailProvider id="frontier.com">
+    <domain>frontier.com</domain>
+    <domain>frontiernet.net</domain>
+    <domain>citilink.net</domain>
+    <domain>epix.net</domain>
+    <domain>gvni.com</domain>
+    <domain>newnorth.net</domain>
+    <displayName>Frontier Mail</displayName>
+    <displayShortName>Frontier Mail</displayShortName>
+    <incomingServer type="pop3">
+      <hostname>pop3.frontier.com</hostname>
+      <port>995</port>
+      <socketType>SSL</socketType>
+      <username>%EMAILADDRESS%</username>
+      <authentication>password-cleartext</authentication>
+    </incomingServer>
+    <outgoingServer type="smtp">
+      <hostname>smtp.frontier.com</hostname>
+      <port>465</port>
+      <socketType>SSL</socketType>
+      <username>%EMAILADDRESS%</username>
+      <authentication>password-cleartext</authentication>
+    </outgoingServer>
+  </emailProvider>
+</clientConfig>

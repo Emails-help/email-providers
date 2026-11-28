@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<clientConfig version="1.1">
+  <!-- Emails.help dataset version 1 -->
+  <emailProvider id="att.net">
+    <domain>att.net</domain>
+    <domain>sbcglobal.net</domain>
+    <domain>bellsouth.net</domain>
+    <domain>pacbell.net</domain>
+    <domain>prodigy.net</domain>
+    <domain>ameritech.net</domain>
+    <domain>currently.com</domain>
+    <domain>flash.net</domain>
+    <domain>nvbell.net</domain>
+    <domain>snet.net</domain>
+    <domain>swbell.net</domain>
+    <domain>wans.net</domain>
+    <displayName>AT&amp;T Mail</displayName>
+    <displayShortName>AT&amp;T Mail</displayShortName>
+    <incomingServer type="imap">
+      <hostname>imap.mail.att.net</hostname>
+      <port>993</port>
+      <socketType>SSL</socketType>
+      <username>%EMAILADDRESS%</username>
+      <authentication>OAuth2</authentication>
+      <authentication>password-cleartext</authentication>
+    </incomingServer>
+    <incomingServer type="pop3">
+      <hostname>inbound.att.net</hostname>
+      <port>995</port>
+      <socketType>SSL</socketType>
+      <username>%EMAILADDRESS%</username>
+      <authentication>OAuth2</authentication>
+      <authentication>password-cleartext</authentication>
+    </incomingServer>
+    <outgoingServer type="smtp">
+      <hostname>smtp.mail.att.net</hostname>
+      <port>465</port>
+      <socketType>SSL</socketType>
+      <username>%EMAILADDRESS%</username>
+      <authentication>OAuth2</authentication>
+      <authentication>password-cleartext</authentication>
+    </outgoingServer>
+  </emailProvider>
+</clientConfig>
