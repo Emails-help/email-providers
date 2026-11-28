@@ -1,5 +1,5 @@
 {
-  "auth_methods": null,
+  "auth_methods": ["password"],
     "slug": "netzero",
     "name": "NetZero",
     "domains": [
@@ -25,7 +25,7 @@
         }
     },
     "username": "Your NetZero Member ID",
-    "authentication": null,
+    "authentication": "Use your NetZero email password. Outgoing mail requires sign-in.",
     "notes": [
         "NetZero publishes no IMAP server — POP3 only. Set “Delete email from server” to Never so a second device and webmail can still see your mail.",
         "Webmail is on netzero.net; addresses and mail servers are on netzero.com. A hostname that looks almost right is usually this.",
