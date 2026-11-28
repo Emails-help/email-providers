@@ -1,4 +1,5 @@
 {
+  "auth_methods": ["password"],
     "slug": "spectrum-charter",
     "name": "Spectrum Email (Charter)",
     "domains": [
