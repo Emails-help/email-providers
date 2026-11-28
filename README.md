@@ -96,6 +96,8 @@ These files are generated from the provider dataset, not a live connection or in
 
 `security` is one of `ssl`, `starttls`, `none` or `null`. A provider with no IMAP/SMTP at all (Proton, Tuta) has `client_access: false`, and that absence is the answer — a client should stop there, not guess.
 
+`auth_methods` is a required structured field: a non-empty, duplicate-free list of `password`, `app-password` and/or `oauth2`, or `null` when the authentication evidence is unclear, absent or not applicable. The original `authentication` text and cited first-party sources remain the evidence. Autoconfig reads only the structured methods, preferring OAuth2 when available and omitting Apple profiles if OAuth2 is the only method. Unknown methods are never inferred from the prose.
+
 The full field list is in [`schema/provider.schema.json`](schema/provider.schema.json).
 
 ## Contributing
