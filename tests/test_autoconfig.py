@@ -5,7 +5,7 @@ import unittest
 import uuid
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from scripts.build_autoconfig import generate, build, ROOT, USERNAME, SOCKET, thunderbird_auth
+from scripts.build_autoconfig import generate, build, ROOT, USERNAME, SOCKET, thunderbird_auth, username_for
 
 
 class AutoconfigTests(unittest.TestCase):
@@ -82,7 +82,7 @@ class AutoconfigTests(unittest.TestCase):
                 if kind=='smtp' and source.get('alternative', {}).get('security') in SOCKET:
                     alt = source['alternative']; candidates.append((alt['port'],alt['security']))
                 self.assertIn((int(s.findtext('port')),s.findtext('socketType')), [(port,SOCKET[sec]) for port,sec in candidates])
-                self.assertEqual(s.findtext('username'), USERNAME[p['username']])
+                self.assertEqual(s.findtext('username'), username_for(p, kind))
                 self.assertEqual(tuple(e.text for e in s.findall('authentication')), thunderbird_auth(p['auth_methods']))
 
     def test_profiles_and_provenance(self):
@@ -133,6 +133,33 @@ class AutoconfigTests(unittest.TestCase):
                 self.assertIsNone(thunderbird_auth(methods))
         p = copy.deepcopy(self.by_slug['aol'])
         del p['auth_methods']
+        self.assertEqual(json.loads(generate([p], self.version)['index.json'])['aol'], [])
+
+
+    def test_icloud_per_protocol_username(self):
+        xml = self.xml('icloud')
+        self.assertEqual(xml.findtext('.//incomingServer/username'), '%EMAILLOCALPART%')
+        self.assertEqual(xml.findtext('.//outgoingServer/username'), '%EMAILADDRESS%')
+        mail = self.profile('icloud')['PayloadContent'][0]
+        self.assertNotIn('IncomingMailServerUsername', mail)
+        self.assertNotIn('OutgoingMailServerUsername', mail)
+        self.assertNotIn('EmailAddress', mail)
+
+    def test_zoho_full_address_and_netzero_conflict(self):
+        xml = self.xml('zoho')
+        for server in xml.findall('.//incomingServer') + xml.findall('.//outgoingServer'):
+            self.assertEqual(server.findtext('username'), '%EMAILADDRESS%')
+        self.assertNotIn('thunderbird/netzero.xml', self.files)
+        self.assertNotIn('apple/netzero.mobileconfig', self.files)
+
+    def test_unverified_settings_are_never_emitted(self):
+        for slug in ('optimum', 'suddenlink'):
+            self.assertIs(self.by_slug[slug]['settings_unverified'], True)
+            self.assertNotIn(f'thunderbird/{slug}.xml', self.files)
+            self.assertNotIn(f'apple/{slug}.mobileconfig', self.files)
+            self.assertIn(f'- `{slug}`: no first-party server settings found.', self.files['SKIPPED.md'].decode())
+        p = copy.deepcopy(self.by_slug['aol'])
+        p['settings_unverified'] = True
         self.assertEqual(json.loads(generate([p], self.version)['index.json'])['aol'], [])
 
     def test_unknown_fields_never_guessed(self):
