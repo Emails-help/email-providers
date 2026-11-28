@@ -61,6 +61,21 @@ r.method;      // where the answer came from
 r.confidence;  // 'documented' | 'undocumented' | 'inferred'
 ```
 
+## Autoconfig files
+
+Browse the [generated configurations](dist/autoconfig/index.json), or rebuild them offline:
+
+```sh
+python3 scripts/build_autoconfig.py
+python3 scripts/build_autoconfig.py --check
+```
+
+- **Thunderbird / ISPDB:** `dist/autoconfig/thunderbird/<slug>.xml` is an ISPDB-style clientConfig 1.1 file. Domain owners can serve a reviewed file at their autoconfig endpoint, or use it as a starting point for an upstream ISPDB submission. Review the domains, authentication methods and upstream contribution requirements before deploying or submitting it.
+- **Apple Mail:** `dist/autoconfig/apple/<slug>.mobileconfig` is an unsigned, single-account configuration profile for interactive installation on iPhone, iPad or Mac. Inspect the server names and profile contents before installation, then follow the operating system's profile installation prompts. An unsigned profile cannot authenticate its author; an unsigned-profile warning is expected. Do not bypass your device's security or management restrictions. Usernames, email addresses and passwords are not embedded.
+- **Never guess:** a server needs a documented host, port and supported encryption setting. Providers with unknown username or authentication mappings, no fixed domains, no client access or no usable incoming/outgoing pair are omitted. Apple profiles also omit providers that require OAuth2. Alternative SMTP settings are emitted only when the dataset specifies their security. See [SKIPPED.md](dist/autoconfig/SKIPPED.md) for every omission.
+
+These files are generated from the provider dataset, not a live connection or installation test. The build is deterministic; regenerate the files when provider settings change.
+
 ## The shape of one provider
 
 ```json
