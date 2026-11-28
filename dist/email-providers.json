@@ -726,6 +726,7 @@
             "verified": "2026-10-23"
         },
         {
+            "auth_methods": null,
             "slug": "netzero",
             "name": "NetZero",
             "domains": [
@@ -766,6 +767,9 @@
             "verified": "2026-11-02"
         },
         {
+            "auth_methods": [
+                "password"
+            ],
             "slug": "optimum",
             "name": "Optimum Email",
             "domains": [
@@ -808,6 +812,9 @@
             "verified": "2026-10-29"
         },
         {
+            "auth_methods": [
+                "oauth2"
+            ],
             "slug": "outlook",
             "name": "Outlook.com",
             "domains": [
@@ -854,6 +861,7 @@
             "verified": "2026-10-23"
         },
         {
+            "auth_methods": null,
             "slug": "proton",
             "name": "Proton Mail",
             "domains": [
@@ -873,6 +881,9 @@
             "verified": "2026-10-23"
         },
         {
+            "auth_methods": [
+                "password"
+            ],
             "slug": "spectrum-brighthouse",
             "name": "Spectrum Email (Bright House)",
             "domains": [
@@ -920,6 +931,9 @@
             "verified": "2026-10-29"
         },
         {
+            "auth_methods": [
+                "password"
+            ],
             "slug": "spectrum-charter",
             "name": "Spectrum Email (Charter)",
             "domains": [
@@ -960,6 +974,9 @@
             "verified": "2026-10-29"
         },
         {
+            "auth_methods": [
+                "password"
+            ],
             "slug": "spectrum-twc",
             "name": "Spectrum Email (Roadrunner / TWC)",
             "domains": [
@@ -1001,6 +1018,9 @@
             "verified": "2026-10-29"
         },
         {
+            "auth_methods": [
+                "password"
+            ],
             "slug": "suddenlink",
             "name": "Suddenlink Email (Optimum)",
             "domains": [
@@ -1041,6 +1061,7 @@
             "verified": "2026-10-29"
         },
         {
+            "auth_methods": null,
             "slug": "tuta",
             "name": "Tuta Mail",
             "domains": [
@@ -1056,12 +1077,16 @@
             "notes": [],
             "undocumented": [],
             "sources": [
-                "https://tuta.com/blog/beta-time-is-over-release-notes"
+                "https://tuta.com/support/howto"
             ],
             "guide": "https://emails.help/tuta/server-settings",
             "verified": null
         },
         {
+            "auth_methods": [
+                "oauth2",
+                "app-password"
+            ],
             "slug": "verizon",
             "name": "Verizon.net (AOL Mail)",
             "domains": [
@@ -1105,6 +1130,7 @@
             "verified": "2026-10-29"
         },
         {
+            "auth_methods": null,
             "slug": "web-de",
             "name": "WEB.DE",
             "domains": [
@@ -1145,6 +1171,7 @@
             "verified": null
         },
         {
+            "auth_methods": null,
             "slug": "windstream",
             "name": "Windstream (Kinetic) Email",
             "domains": [
@@ -1187,6 +1214,9 @@
             "verified": "2026-10-29"
         },
         {
+            "auth_methods": [
+                "password"
+            ],
             "slug": "xfinity",
             "name": "Xfinity Email (Comcast)",
             "domains": [
@@ -1235,6 +1265,9 @@
             "verified": "2026-10-29"
         },
         {
+            "auth_methods": [
+                "app-password"
+            ],
             "slug": "yahoo",
             "name": "Yahoo Mail",
             "domains": [
@@ -1273,6 +1306,9 @@
             "verified": "2026-10-23"
         },
         {
+            "auth_methods": [
+                "app-password"
+            ],
             "slug": "yandex",
             "name": "Yandex Mail",
             "domains": [
@@ -1314,6 +1350,7 @@
             "verified": "2026-10-23"
         },
         {
+            "auth_methods": null,
             "slug": "zoho",
             "name": "Zoho Mail",
             "domains": [
