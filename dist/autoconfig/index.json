@@ -1,0 +1,71 @@
+{
+  "aol": [
+    "thunderbird/aol.xml",
+    "apple/aol.mobileconfig"
+  ],
+  "att": [
+    "thunderbird/att.xml",
+    "apple/att.mobileconfig"
+  ],
+  "centurylink": [],
+  "cox": [
+    "thunderbird/cox.xml",
+    "apple/cox.mobileconfig"
+  ],
+  "earthlink": [],
+  "fastmail": [
+    "thunderbird/fastmail.xml",
+    "apple/fastmail.mobileconfig"
+  ],
+  "frontier": [
+    "thunderbird/frontier.xml",
+    "apple/frontier.mobileconfig"
+  ],
+  "gmail": [
+    "thunderbird/gmail.xml",
+    "apple/gmail.mobileconfig"
+  ],
+  "gmx": [],
+  "gmx-net": [],
+  "godaddy": [],
+  "icloud": [],
+  "juno": [],
+  "mail-com": [],
+  "microsoft-365": [],
+  "netzero": [],
+  "optimum": [
+    "thunderbird/optimum.xml",
+    "apple/optimum.mobileconfig"
+  ],
+  "outlook": [
+    "thunderbird/outlook.xml"
+  ],
+  "proton": [],
+  "spectrum-brighthouse": [],
+  "spectrum-charter": [],
+  "spectrum-twc": [],
+  "suddenlink": [
+    "thunderbird/suddenlink.xml",
+    "apple/suddenlink.mobileconfig"
+  ],
+  "tuta": [],
+  "verizon": [
+    "thunderbird/verizon.xml",
+    "apple/verizon.mobileconfig"
+  ],
+  "web-de": [],
+  "windstream": [],
+  "xfinity": [
+    "thunderbird/xfinity.xml",
+    "apple/xfinity.mobileconfig"
+  ],
+  "yahoo": [
+    "thunderbird/yahoo.xml",
+    "apple/yahoo.mobileconfig"
+  ],
+  "yandex": [
+    "thunderbird/yandex.xml",
+    "apple/yandex.mobileconfig"
+  ],
+  "zoho": []
+}
