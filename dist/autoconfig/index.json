@@ -12,7 +12,10 @@
     "thunderbird/cox.xml",
     "apple/cox.mobileconfig"
   ],
-  "earthlink": [],
+  "earthlink": [
+    "thunderbird/earthlink.xml",
+    "apple/earthlink.mobileconfig"
+  ],
   "fastmail": [
     "thunderbird/fastmail.xml",
     "apple/fastmail.mobileconfig"
@@ -22,12 +25,21 @@
     "thunderbird/gmail.xml",
     "apple/gmail.mobileconfig"
   ],
-  "gmx": [],
+  "gmx": [
+    "thunderbird/gmx.xml",
+    "apple/gmx.mobileconfig"
+  ],
   "gmx-net": [],
   "godaddy": [],
   "icloud": [],
-  "juno": [],
-  "mail-com": [],
+  "juno": [
+    "thunderbird/juno.xml",
+    "apple/juno.mobileconfig"
+  ],
+  "mail-com": [
+    "thunderbird/mail-com.xml",
+    "apple/mail-com.mobileconfig"
+  ],
   "microsoft-365": [],
   "netzero": [],
   "optimum": [
@@ -50,7 +62,10 @@
     "thunderbird/verizon.xml",
     "apple/verizon.mobileconfig"
   ],
-  "web-de": [],
+  "web-de": [
+    "thunderbird/web-de.xml",
+    "apple/web-de.mobileconfig"
+  ],
   "windstream": [],
   "xfinity": [
     "thunderbird/xfinity.xml",
