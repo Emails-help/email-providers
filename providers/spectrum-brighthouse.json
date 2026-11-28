@@ -1,5 +1,7 @@
 {
-  "auth_methods": ["password"],
+    "auth_methods": [
+        "password"
+    ],
     "slug": "spectrum-brighthouse",
     "name": "Spectrum Email (Bright House)",
     "domains": [
@@ -35,13 +37,17 @@
     "username": "Your full Spectrum-provided email address",
     "authentication": "Your Spectrum email password. Outgoing mail requires authentication.",
     "notes": [
-        "Spectrum lists IMAP with SSL on, incoming port 993 and outgoing port 587."
+        "Spectrum lists IMAP with SSL on, incoming port 993 and outgoing port 587.",
+        "Spectrum's first-party guidance lists SSL on and SMTP port 587, but does not distinguish implicit TLS from STARTTLS. SMTP security remains undocumented."
     ],
     "undocumented": [
         "smtp_security"
     ],
     "sources": [
-        "https://www.spectrum.net/support/internet/mobile-email-setup"
+        "https://www.spectrum.net/support/internet/mobile-email-setup",
+        "https://www.spectrum.net/support/internet/spectrum-basic-email-troubleshooting",
+        "https://www.spectrum.net/support/internet/email-settings/?chat-redirect=true",
+        "https://www.spectrum.net/support/internet/email-settings/?SourceApp=MSA"
     ],
     "guide": "https://emails.help/spectrum-email/server-settings",
     "verified": "2026-10-29"
