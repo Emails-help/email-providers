@@ -1,4 +1,5 @@
 {
+  "auth_methods": null,
     "slug": "earthlink",
     "name": "EarthLink",
     "domains": [
