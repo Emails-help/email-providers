@@ -5,7 +5,7 @@ import unittest
 import uuid
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from scripts.build_autoconfig import generate, build, ROOT, USERNAME, AUTH, SOCKET
+from scripts.build_autoconfig import generate, build, ROOT, USERNAME, SOCKET, thunderbird_auth
 
 
 class AutoconfigTests(unittest.TestCase):
@@ -51,7 +51,13 @@ class AutoconfigTests(unittest.TestCase):
     def test_oauth_only_and_pop_fallback(self):
         self.assertNotIn('apple/outlook.mobileconfig', self.files)
         self.assertEqual([a.text for a in self.xml('outlook').findall('.//outgoingServer/authentication')], ['OAuth2'])
-        self.assertEqual(self.profile('frontier')['PayloadContent'][0]['EmailAccountType'], 'EmailTypePOP')
+        # Frontier is withheld until the conflicting password/OAuth evidence is clarified.
+        self.assertNotIn('apple/frontier.mobileconfig', self.files)
+        self.assertNotIn('thunderbird/frontier.xml', self.files)
+        p = copy.deepcopy(self.by_slug['aol'])
+        del p['incoming']['imap']
+        profile = plistlib.loads(generate([p], self.version)['apple/aol.mobileconfig'])
+        self.assertEqual(profile['PayloadContent'][0]['EmailAccountType'], 'EmailTypePOP')
 
     def test_alternatives(self):
         self.assertEqual([s.findtext('port') for s in self.xml('fastmail').findall('.//outgoingServer')], ['465','587'])
@@ -77,7 +83,7 @@ class AutoconfigTests(unittest.TestCase):
                     alt = source['alternative']; candidates.append((alt['port'],alt['security']))
                 self.assertIn((int(s.findtext('port')),s.findtext('socketType')), [(port,SOCKET[sec]) for port,sec in candidates])
                 self.assertEqual(s.findtext('username'), USERNAME[p['username']])
-                self.assertEqual(tuple(e.text for e in s.findall('authentication')), AUTH[p['authentication']])
+                self.assertEqual(tuple(e.text for e in s.findall('authentication')), thunderbird_auth(p['auth_methods']))
 
     def test_profiles_and_provenance(self):
         uuids = set()
@@ -105,8 +111,32 @@ class AutoconfigTests(unittest.TestCase):
                 self.assertTrue(m[prefix+'MailServerUseSSL'])
                 self.assertEqual(m[prefix+'MailServerAuthentication'],'EmailAuthPassword')
 
+    def test_structured_auth_methods(self):
+        for methods, expected, has_apple in [
+            (['password'], ('password-cleartext',), True),
+            (['app-password'], ('password-cleartext',), True),
+            (['oauth2'], ('OAuth2',), False),
+            (['password', 'app-password'], ('password-cleartext',), True),
+            (['password', 'oauth2', 'app-password'], ('OAuth2', 'password-cleartext'), True),
+        ]:
+            with self.subTest(methods=methods):
+                p = copy.deepcopy(self.by_slug['aol'])
+                p['auth_methods'] = methods
+                p['authentication'] = 'unrecognized prose; not used by generator'
+                generated = generate([p], self.version)
+                xml = ET.fromstring(generated['thunderbird/aol.xml'])
+                for node in xml.findall('.//incomingServer') + xml.findall('.//outgoingServer'):
+                    self.assertEqual(tuple(e.text for e in node.findall('authentication')), expected)
+                self.assertEqual('apple/aol.mobileconfig' in generated, has_apple)
+        for methods in (None, [], ['invalid'], ['oauth2', 'oauth2'], 'password', [{}]):
+            with self.subTest(methods=methods):
+                self.assertIsNone(thunderbird_auth(methods))
+        p = copy.deepcopy(self.by_slug['aol'])
+        del p['auth_methods']
+        self.assertEqual(json.loads(generate([p], self.version)['index.json'])['aol'], [])
+
     def test_unknown_fields_never_guessed(self):
-        for field, value in [('username','unknown'),('authentication','password maybe'),('domains',[]),('client_access',False)]:
+        for field, value in [('username','unknown'),('auth_methods',None),('auth_methods',[]),('auth_methods',['unknown']),('auth_methods',['password','password']),('domains',[]),('client_access',False)]:
             p = copy.deepcopy(self.by_slug['aol']); p[field] = value
             self.assertEqual(json.loads(generate([p],self.version)['index.json'])['aol'],[])
         for field, value in [('security_documented',False),('security',None),('port',None),('host',None)]:
