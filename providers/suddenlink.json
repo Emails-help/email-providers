@@ -1,5 +1,7 @@
 {
-  "auth_methods": ["password"],
+    "auth_methods": [
+        "password"
+    ],
     "slug": "suddenlink",
     "name": "Suddenlink Email (Optimum)",
     "domains": [
@@ -31,11 +33,15 @@
     },
     "username": "Your full email address",
     "authentication": "The password for your email address. Turn on “My outgoing server requires authentication”.",
-    "notes": [],
+    "notes": [
+        "No first-party server settings found in the supplied source review. The transition page links webmail, not mail-client settings. Retained historical values are unverified; do not generate configurations."
+    ],
     "undocumented": [],
     "sources": [
-        "https://www.optimum.net/FAQ/#/answers/a_id/216"
+        "https://www.optimum.net/FAQ/#/answers/a_id/216",
+        "https://www.optimum.net/pages/transition.html?sc_cid=suddenlink.com"
     ],
     "guide": "https://emails.help/optimum-email/server-settings",
-    "verified": "2026-10-29"
+    "verified": "2026-10-29",
+    "settings_unverified": true
 }
