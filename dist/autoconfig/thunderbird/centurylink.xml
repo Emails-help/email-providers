@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<clientConfig version="1.1">
+  <!-- Emails.help dataset version 1 -->
+  <emailProvider id="centurylink.net">
+    <domain>centurylink.net</domain>
+    <domain>centurytel.net</domain>
+    <domain>clds.net</domain>
+    <domain>coastalnow.net</domain>
+    <domain>cochill.net</domain>
+    <domain>cswnet.com</domain>
+    <domain>elpasotel.net</domain>
+    <domain>embarqmail.com</domain>
+    <domain>emadisonriver.com</domain>
+    <domain>emadisonriver.net</domain>
+    <domain>gallatinriver.net</domain>
+    <domain>grics.net</domain>
+    <domain>gulftel.com</domain>
+    <domain>madisonriver.biz</domain>
+    <domain>mebtel.net</domain>
+    <domain>qwest.net</domain>
+    <displayName>CenturyLink Email</displayName>
+    <displayShortName>CenturyLink Email</displayShortName>
+    <incomingServer type="imap">
+      <hostname>mail.centurylink.net</hostname>
+      <port>993</port>
+      <socketType>SSL</socketType>
+      <username>%EMAILADDRESS%</username>
+      <authentication>password-cleartext</authentication>
+    </incomingServer>
+    <incomingServer type="pop3">
+      <hostname>pop.centurylink.net</hostname>
+      <port>995</port>
+      <socketType>SSL</socketType>
+      <username>%EMAILADDRESS%</username>
+      <authentication>password-cleartext</authentication>
+    </incomingServer>
+    <outgoingServer type="smtp">
+      <hostname>smtp.centurylink.net</hostname>
+      <port>587</port>
+      <socketType>STARTTLS</socketType>
+      <username>%EMAILADDRESS%</username>
+      <authentication>password-cleartext</authentication>
+    </outgoingServer>
+  </emailProvider>
+</clientConfig>
