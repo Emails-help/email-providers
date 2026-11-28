@@ -1,5 +1,5 @@
 {
-  "auth_methods": null,
+  "auth_methods": ["password","app-password"],
     "slug": "zoho",
     "name": "Zoho Mail",
     "domains": [
@@ -31,7 +31,7 @@
         }
     },
     "username": "Your Zoho username or full Zoho Mail address",
-    "authentication": null,
+    "authentication": "Use your Zoho account password, or an application-specific password if two-factor authentication is enabled.",
     "notes": [
         "Turn on IMAP Access first: Settings › Mail Accounts › your address › IMAP.",
         "Paid organisation accounts (you@yourdomain.com) use imappro.zoho.com and smtppro.zoho.com instead.",
