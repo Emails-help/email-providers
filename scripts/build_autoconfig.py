@@ -14,26 +14,8 @@ USERNAME = dict.fromkeys((
     'Your full address, including @verizon.net', 'Your full email address (memberid@juno.com)',
 ), '%EMAILADDRESS%')
 USERNAME['The part of your address before the @'] = '%EMAILLOCALPART%'
-PASSWORD = ('password-cleartext',)
-BOTH = ('OAuth2', 'password-cleartext')
-OAUTH = ('OAuth2',)
-AUTH = {
-    'An app password from your AOL Account Security page — unless your app signs in through AOL’s own sign-in page.': PASSWORD,
-    'A secure mail key (16 characters, created in your AT&T profile) — unless your app signs in with OAuth, where your AT&T password works.': BOTH,
-    'A Yahoo app password — your regular password won’t work in email apps.': PASSWORD,
-    'An app password — Fastmail doesn’t accept your regular password in email apps.': PASSWORD,
-    'Your Frontier email password. The outgoing server requires authentication.': PASSWORD,
-    'Use your app’s “Sign in with Google” option where available. If you use 2-Step Verification and your app can’t sign in with Google, Google suggests an app password.': BOTH,
-    'Your email password — not your GoDaddy account password.': PASSWORD,
-    'Your work or school account password. Turn on “My outgoing server requires authentication” and leave Secure Password Authentication off.': PASSWORD,
-    'The password for your email address. Turn on “My outgoing server requires authentication”.': PASSWORD,
-    'Your Microsoft account password. Outlook.com requires an app that supports Modern Auth (OAuth2).': OAUTH,
-    'Your Spectrum email password. Outgoing mail requires authentication.': PASSWORD,
-    'Use an app that supports OAuth2, or create an AOL app password.': BOTH,
-    'Your Xfinity ID password. Turn on third-party access first: Xfinity Email › Settings › Security › Third Party Access Security.': PASSWORD,
-    'Yahoo asks you to generate an app password for third-party email apps.': PASSWORD,
-    'An app password (type “Mail”) created in your Yandex ID. It’s shown only once.': PASSWORD,
-}
+AUTH_METHODS = frozenset(('password', 'app-password', 'oauth2'))
+PASSWORD_METHODS = frozenset(('password', 'app-password'))
 SOCKET = {'ssl': 'SSL', 'starttls': 'STARTTLS'}
 ACCOUNT = {'imap': 'EmailTypeIMAP', 'pop3': 'EmailTypePOP'}
 
