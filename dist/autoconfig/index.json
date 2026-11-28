@@ -7,7 +7,10 @@
     "thunderbird/att.xml",
     "apple/att.mobileconfig"
   ],
-  "centurylink": [],
+  "centurylink": [
+    "thunderbird/centurylink.xml",
+    "apple/centurylink.mobileconfig"
+  ],
   "cox": [
     "thunderbird/cox.xml",
     "apple/cox.mobileconfig"
@@ -29,9 +32,15 @@
     "thunderbird/gmx.xml",
     "apple/gmx.mobileconfig"
   ],
-  "gmx-net": [],
+  "gmx-net": [
+    "thunderbird/gmx-net.xml",
+    "apple/gmx-net.mobileconfig"
+  ],
   "godaddy": [],
-  "icloud": [],
+  "icloud": [
+    "thunderbird/icloud.xml",
+    "apple/icloud.mobileconfig"
+  ],
   "juno": [
     "thunderbird/juno.xml",
     "apple/juno.mobileconfig"
@@ -42,10 +51,7 @@
   ],
   "microsoft-365": [],
   "netzero": [],
-  "optimum": [
-    "thunderbird/optimum.xml",
-    "apple/optimum.mobileconfig"
-  ],
+  "optimum": [],
   "outlook": [
     "thunderbird/outlook.xml"
   ],
@@ -53,10 +59,7 @@
   "spectrum-brighthouse": [],
   "spectrum-charter": [],
   "spectrum-twc": [],
-  "suddenlink": [
-    "thunderbird/suddenlink.xml",
-    "apple/suddenlink.mobileconfig"
-  ],
+  "suddenlink": [],
   "tuta": [],
   "verizon": [
     "thunderbird/verizon.xml",
@@ -66,7 +69,10 @@
     "thunderbird/web-de.xml",
     "apple/web-de.mobileconfig"
   ],
-  "windstream": [],
+  "windstream": [
+    "thunderbird/windstream.xml",
+    "apple/windstream.mobileconfig"
+  ],
   "xfinity": [
     "thunderbird/xfinity.xml",
     "apple/xfinity.mobileconfig"
@@ -79,5 +85,8 @@
     "thunderbird/yandex.xml",
     "apple/yandex.mobileconfig"
   ],
-  "zoho": []
+  "zoho": [
+    "thunderbird/zoho.xml",
+    "apple/zoho.mobileconfig"
+  ]
 }
