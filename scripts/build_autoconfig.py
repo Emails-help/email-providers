@@ -38,6 +38,18 @@ SOCKET = {'ssl': 'SSL', 'starttls': 'STARTTLS'}
 ACCOUNT = {'imap': 'EmailTypeIMAP', 'pop3': 'EmailTypePOP'}
 
 
+def thunderbird_auth(methods):
+    """Return supported XML methods in preference order, or None for a gap."""
+    if (not isinstance(methods, list) or not methods
+            or any(not isinstance(m, str) or m not in AUTH_METHODS for m in methods)
+            or len(set(methods)) != len(methods)):
+        return None
+    return tuple(method for method, enabled in (
+        ('OAuth2', 'oauth2' in methods),
+        ('password-cleartext', bool(PASSWORD_METHODS.intersection(methods))),
+    ) if enabled)
+
+
 def server_errors(server):
     errors = []
     if not isinstance(server.get('host'), str) or not server['host'].strip():
@@ -113,9 +125,10 @@ def generate(providers, version):
         username = USERNAME.get(p.get('username'))
         if username is None:
             reasons.append('username is missing or not in the exact mapping')
-        auth = AUTH.get(p.get('authentication'))
+        methods = p.get('auth_methods')
+        auth = thunderbird_auth(methods)
         if auth is None:
-            reasons.append('authentication is missing or not in the exact mapping')
+            reasons.append('auth_methods is missing, null or invalid')
         incoming, outgoing = [], []
         for protocol, target in (('imap', incoming), ('pop3', incoming), ('smtp', outgoing)):
             server = p.get('outgoing' if protocol == 'smtp' else 'incoming', {}).get(protocol)
@@ -146,7 +159,7 @@ def generate(providers, version):
         path = f'thunderbird/{slug}.xml'
         files[path] = thunderbird(p, version, incoming, outgoing, username, auth)
         index[slug].append(path)
-        if auth == OAUTH:
+        if not PASSWORD_METHODS.intersection(methods):
             skipped.append(f'- `{slug}` Apple: Apple payload has no OAuth authentication value.')
         else:
             path = f'apple/{slug}.mobileconfig'
