@@ -74,6 +74,8 @@ python3 scripts/build_autoconfig.py --check
 - **Apple Mail:** `dist/autoconfig/apple/<slug>.mobileconfig` is an unsigned, single-account configuration profile for interactive installation on iPhone, iPad or Mac. Inspect the server names and profile contents before installation, then follow the operating system's profile installation prompts. An unsigned profile cannot authenticate its author; an unsigned-profile warning is expected. Do not bypass your device's security or management restrictions. Usernames, email addresses and passwords are not embedded.
 - **Never guess:** a server needs a documented host, port and supported encryption setting. Providers with unknown username or authentication mappings, no fixed domains, no client access or no usable incoming/outgoing pair are omitted. Apple profiles also omit providers that require OAuth2. Alternative SMTP settings are emitted only when the dataset specifies their security. See [SKIPPED.md](dist/autoconfig/SKIPPED.md) for every omission.
 
+A provider marked `settings_unverified: true` retains historical settings for transparency, but those settings must not be treated as verified or used for automatic configuration. The generator excludes the entire provider. The iCloud Thunderbird configuration uses the IMAP local part and SMTP full address; try the full IMAP address if needed, as Apple documents. Apple profiles leave usernames unset.
+
 These files are generated from the provider dataset, not a live connection or installation test. The build is deterministic; regenerate the files when provider settings change.
 
 ## The shape of one provider
