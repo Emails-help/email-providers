@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>EmailAccountDescription</key>
+			<string>Juno</string>
+			<key>EmailAccountType</key>
+			<string>EmailTypePOP</string>
+			<key>IncomingMailServerAuthentication</key>
+			<string>EmailAuthPassword</string>
+			<key>IncomingMailServerHostName</key>
+			<string>pop.juno.com</string>
+			<key>IncomingMailServerPortNumber</key>
+			<integer>995</integer>
+			<key>IncomingMailServerUseSSL</key>
+			<true/>
+			<key>OutgoingMailServerAuthentication</key>
+			<string>EmailAuthPassword</string>
+			<key>OutgoingMailServerHostName</key>
+			<string>smtp.juno.com</string>
+			<key>OutgoingMailServerPortNumber</key>
+			<integer>465</integer>
+			<key>OutgoingMailServerUseSSL</key>
+			<true/>
+			<key>OutgoingPasswordSameAsIncomingPassword</key>
+			<true/>
+			<key>PayloadIdentifier</key>
+			<string>help.emails.juno.pop3</string>
+			<key>PayloadType</key>
+			<string>com.apple.mail.managed</string>
+			<key>PayloadUUID</key>
+			<string>31179625-8ef2-5ccf-926e-e0ba85412c1f</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Emails.help dataset version 1</string>
+	<key>PayloadDisplayName</key>
+	<string>Juno</string>
+	<key>PayloadIdentifier</key>
+	<string>help.emails.juno.profile</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>9856916e-2b36-5b0d-931e-db0d8339d67b</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

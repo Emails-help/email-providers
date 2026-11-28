@@ -1,5 +1,8 @@
 {
-  "auth_methods": null,
+    "auth_methods": [
+        "password",
+        "app-password"
+    ],
     "slug": "zoho",
     "name": "Zoho Mail",
     "domains": [
@@ -31,12 +34,13 @@
         }
     },
     "username": "Your Zoho username or full Zoho Mail address",
-    "authentication": null,
+    "authentication": "Use your Zoho account password, or an application-specific password if two-factor authentication is enabled.",
     "notes": [
         "Turn on IMAP Access first: Settings › Mail Accounts › your address › IMAP.",
         "Paid organisation accounts (you@yourdomain.com) use imappro.zoho.com and smtppro.zoho.com instead.",
         "Your account’s Server Configuration Details shows the exact servers for your data centre — use those if they differ.",
-        "IMAP isn’t available to newly signed-up free-plan users."
+        "IMAP isn’t available to newly signed-up free-plan users.",
+        "The complete Zoho Mail address is accepted as a username; generated configurations use the full address."
     ],
     "undocumented": [],
     "sources": [

@@ -1,5 +1,7 @@
 {
-  "auth_methods": ["password"],
+    "auth_methods": [
+        "password"
+    ],
     "slug": "optimum",
     "name": "Optimum Email",
     "domains": [
@@ -32,12 +34,15 @@
     "username": "Your full email address",
     "authentication": "The password for your email address. Turn on “My outgoing server requires authentication”.",
     "notes": [
-        "Optimum recommends IMAP if you read email on more than one device."
+        "Optimum recommends IMAP if you read email on more than one device.",
+        "No first-party server settings found in the supplied source review. The cited webmail guide concerns added mail accounts, not Optimum's own incoming/outgoing servers. Retained historical values are unverified; do not generate configurations."
     ],
     "undocumented": [],
     "sources": [
-        "https://www.optimum.net/FAQ/#/answers/a_id/216"
+        "https://www.optimum.net/FAQ/#/answers/a_id/216",
+        "https://myemail.optimum.net/webmail/help/richui-English/Ux%20Suite%20Online%20Help/Settings/Mail%20options/Accounts/Setting%20up%20your%20mail%20accounts.htm"
     ],
     "guide": "https://emails.help/optimum-email/server-settings",
-    "verified": "2026-10-29"
+    "verified": "2026-10-29",
+    "settings_unverified": true
 }

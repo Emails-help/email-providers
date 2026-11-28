@@ -1,5 +1,7 @@
 {
-  "auth_methods": ["app-password"],
+    "auth_methods": [
+        "app-password"
+    ],
     "slug": "icloud",
     "name": "iCloud Mail",
     "domains": [
@@ -29,7 +31,8 @@
     "authentication": "An app-specific password, generated from your Apple Account — not your normal Apple password.",
     "notes": [
         "iCloud Mail doesn’t support POP.",
-        "On Apple devices that meet iCloud’s requirements, use the built-in iCloud settings instead."
+        "On Apple devices that meet iCloud’s requirements, use the built-in iCloud settings instead.",
+        "Thunderbird uses the documented usual IMAP local part and full SMTP address; if IMAP fails, Apple recommends trying the full address."
     ],
     "undocumented": [],
     "sources": [

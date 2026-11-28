@@ -12,12 +12,24 @@ USERNAME = dict.fromkeys((
     'Your full email address', 'Your full cox.net email address',
     'Your full Spectrum-provided email address', 'Your full Comcast.net email address',
     'Your full address, including @verizon.net', 'Your full email address (memberid@juno.com)',
+    'Your Zoho username or full Zoho Mail address',
 ), '%EMAILADDRESS%')
 USERNAME['The part of your address before the @'] = '%EMAILLOCALPART%'
 AUTH_METHODS = frozenset(('password', 'app-password', 'oauth2'))
 PASSWORD_METHODS = frozenset(('password', 'app-password'))
 SOCKET = {'ssl': 'SSL', 'starttls': 'STARTTLS'}
 ACCOUNT = {'imap': 'EmailTypeIMAP', 'pop3': 'EmailTypePOP'}
+
+
+ICLOUD_USERNAME = 'IMAP: usually the part of your address before the @ (try the full address if that fails). SMTP: your full iCloud address.'
+
+
+def username_for(provider, protocol):
+    """Use only explicitly reviewed username instructions for each protocol."""
+    text = provider.get('username')
+    if provider['slug'] == 'icloud' and text == ICLOUD_USERNAME:
+        return {'imap': '%EMAILLOCALPART%', 'smtp': '%EMAILADDRESS%'}.get(protocol)
+    return USERNAME.get(text)
 
 
 def thunderbird_auth(methods):
@@ -61,7 +73,7 @@ def thunderbird(p, version, incoming, outgoing, username, auth):
         for protocol, server in servers:
             node = ET.SubElement(provider, tag, type=protocol)
             for key, value in (('hostname', server['host']), ('port', server['port']),
-                               ('socketType', SOCKET[server['security']]), ('username', username)):
+                               ('socketType', SOCKET[server['security']]), ('username', username[protocol])):
                 element(node, key, value)
             for method in auth:
                 element(node, 'authentication', method)
@@ -99,13 +111,17 @@ def generate(providers, version):
         if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', slug) or slug in index:
             raise ValueError(f'Invalid or duplicate slug: {slug}')
         index[slug] = []
+        if p.get('settings_unverified') is True:
+            skipped.append(f'- `{slug}`: no first-party server settings found.')
+            continue
         reasons = []
         if p.get('client_access') is not True:
             reasons.append('client_access is not true')
         if not p.get('domains'):
             reasons.append('no fixed domains')
-        username = USERNAME.get(p.get('username'))
-        if username is None:
+        username = {protocol: username_for(p, protocol) for protocol in ('imap', 'pop3', 'smtp')}
+        protocols = [kind for block in ('incoming', 'outgoing') for kind in p.get(block, {})]
+        if not any(username.values()) or any(username.get(kind) is None for kind in protocols):
             reasons.append('username is missing or not in the exact mapping')
         methods = p.get('auth_methods')
         auth = thunderbird_auth(methods)

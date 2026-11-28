@@ -1,5 +1,5 @@
 {
-  "auth_methods": null,
+  "auth_methods": ["password"],
     "slug": "earthlink",
     "name": "EarthLink",
     "domains": [
@@ -32,7 +32,7 @@
         }
     },
     "username": "Your full email address",
-    "authentication": null,
+    "authentication": "Use your full email address and password. Authentication is required.",
     "notes": [
         "For POP, other EarthLink domains use pop. plus the domain — for example pop.mindspring.com or pop.peoplepc.com.",
         "If you use more than one device, put them all on IMAP; EarthLink warns that mixing POP and IMAP can stop messages saving."

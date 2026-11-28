@@ -6,13 +6,13 @@
 	<array>
 		<dict>
 			<key>EmailAccountDescription</key>
-			<string>Optimum Email</string>
+			<string>mail.com</string>
 			<key>EmailAccountType</key>
 			<string>EmailTypeIMAP</string>
 			<key>IncomingMailServerAuthentication</key>
 			<string>EmailAuthPassword</string>
 			<key>IncomingMailServerHostName</key>
-			<string>mail.optimum.net</string>
+			<string>imap.mail.com</string>
 			<key>IncomingMailServerPortNumber</key>
 			<integer>993</integer>
 			<key>IncomingMailServerUseSSL</key>
@@ -20,19 +20,19 @@
 			<key>OutgoingMailServerAuthentication</key>
 			<string>EmailAuthPassword</string>
 			<key>OutgoingMailServerHostName</key>
-			<string>mail.optimum.net</string>
+			<string>smtp.mail.com</string>
 			<key>OutgoingMailServerPortNumber</key>
-			<integer>465</integer>
+			<integer>587</integer>
 			<key>OutgoingMailServerUseSSL</key>
 			<true/>
 			<key>OutgoingPasswordSameAsIncomingPassword</key>
 			<true/>
 			<key>PayloadIdentifier</key>
-			<string>help.emails.optimum.imap</string>
+			<string>help.emails.mail-com.imap</string>
 			<key>PayloadType</key>
 			<string>com.apple.mail.managed</string>
 			<key>PayloadUUID</key>
-			<string>cf1cd926-2702-529a-9ac7-cf4baa8d9637</string>
+			<string>b8b0b25f-c1f1-557f-870b-efdeb4fd6981</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -40,13 +40,13 @@
 	<key>PayloadDescription</key>
 	<string>Emails.help dataset version 1</string>
 	<key>PayloadDisplayName</key>
-	<string>Optimum Email</string>
+	<string>mail.com</string>
 	<key>PayloadIdentifier</key>
-	<string>help.emails.optimum.profile</string>
+	<string>help.emails.mail-com.profile</string>
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>2024fd42-9610-556a-bb22-c4f01aa970cb</string>
+	<string>444502cc-680b-5d93-aadb-712e1102270b</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>

@@ -1,5 +1,7 @@
 {
-  "auth_methods": null,
+    "auth_methods": [
+        "password"
+    ],
     "slug": "windstream",
     "name": "Windstream (Kinetic) Email",
     "domains": [
@@ -28,7 +30,7 @@
         }
     },
     "username": "Your full email address",
-    "authentication": null,
+    "authentication": "Use your windstream.net email password.",
     "notes": [
         "Windstream recommends IMAP. If one device uses IMAP, set every device to IMAP to avoid “POP lock”.",
         "Accounts with no Webmail, POP or IMAP activity for 180 days become inactive."
@@ -36,7 +38,8 @@
     "undocumented": [],
     "sources": [
         "https://www.gokinetic.com/support/my-account/email-101/what-server-settings-do-i-use-for-windstream-email",
-        "https://www.gokinetic.com/support/my-account/email-101/how-do-i-recover-or-reset-my-email-password"
+        "https://www.gokinetic.com/support/my-account/email-101/how-do-i-recover-or-reset-my-email-password",
+        "https://www.gokinetic.com/support/my-account/setting-up-my-email/how-do-i-set-up-my-windstream-email-on-my-android"
     ],
     "guide": "https://emails.help/windstream-email/server-settings",
     "verified": "2026-10-29"

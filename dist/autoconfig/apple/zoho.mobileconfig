@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>EmailAccountDescription</key>
+			<string>Zoho Mail</string>
+			<key>EmailAccountType</key>
+			<string>EmailTypeIMAP</string>
+			<key>IncomingMailServerAuthentication</key>
+			<string>EmailAuthPassword</string>
+			<key>IncomingMailServerHostName</key>
+			<string>imap.zoho.com</string>
+			<key>IncomingMailServerPortNumber</key>
+			<integer>993</integer>
+			<key>IncomingMailServerUseSSL</key>
+			<true/>
+			<key>OutgoingMailServerAuthentication</key>
+			<string>EmailAuthPassword</string>
+			<key>OutgoingMailServerHostName</key>
+			<string>smtp.zoho.com</string>
+			<key>OutgoingMailServerPortNumber</key>
+			<integer>465</integer>
+			<key>OutgoingMailServerUseSSL</key>
+			<true/>
+			<key>OutgoingPasswordSameAsIncomingPassword</key>
+			<true/>
+			<key>PayloadIdentifier</key>
+			<string>help.emails.zoho.imap</string>
+			<key>PayloadType</key>
+			<string>com.apple.mail.managed</string>
+			<key>PayloadUUID</key>
+			<string>95a583c5-509e-58c7-86c8-6af47fcc27ca</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Emails.help dataset version 1</string>
+	<key>PayloadDisplayName</key>
+	<string>Zoho Mail</string>
+	<key>PayloadIdentifier</key>
+	<string>help.emails.zoho.profile</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>ab165a78-2040-5c97-9ae3-8baf0cef5427</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

@@ -6,13 +6,13 @@
 	<array>
 		<dict>
 			<key>EmailAccountDescription</key>
-			<string>Suddenlink Email (Optimum)</string>
+			<string>iCloud Mail</string>
 			<key>EmailAccountType</key>
 			<string>EmailTypeIMAP</string>
 			<key>IncomingMailServerAuthentication</key>
 			<string>EmailAuthPassword</string>
 			<key>IncomingMailServerHostName</key>
-			<string>imap.suddenlink.net</string>
+			<string>imap.mail.me.com</string>
 			<key>IncomingMailServerPortNumber</key>
 			<integer>993</integer>
 			<key>IncomingMailServerUseSSL</key>
@@ -20,19 +20,19 @@
 			<key>OutgoingMailServerAuthentication</key>
 			<string>EmailAuthPassword</string>
 			<key>OutgoingMailServerHostName</key>
-			<string>smtp.suddenlink.net</string>
+			<string>smtp.mail.me.com</string>
 			<key>OutgoingMailServerPortNumber</key>
-			<integer>465</integer>
+			<integer>587</integer>
 			<key>OutgoingMailServerUseSSL</key>
 			<true/>
 			<key>OutgoingPasswordSameAsIncomingPassword</key>
 			<true/>
 			<key>PayloadIdentifier</key>
-			<string>help.emails.suddenlink.imap</string>
+			<string>help.emails.icloud.imap</string>
 			<key>PayloadType</key>
 			<string>com.apple.mail.managed</string>
 			<key>PayloadUUID</key>
-			<string>9546e71d-17e6-5e6c-92c4-5c0051c6a49f</string>
+			<string>0703984e-4952-5948-af37-e66a1c4bd0f3</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -40,13 +40,13 @@
 	<key>PayloadDescription</key>
 	<string>Emails.help dataset version 1</string>
 	<key>PayloadDisplayName</key>
-	<string>Suddenlink Email (Optimum)</string>
+	<string>iCloud Mail</string>
 	<key>PayloadIdentifier</key>
-	<string>help.emails.suddenlink.profile</string>
+	<string>help.emails.icloud.profile</string>
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>b0dddb40-fde4-58f7-ac96-c39e2136f875</string>
+	<string>58a1b791-71a0-5a7c-8a0c-8a3e66cfe341</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>

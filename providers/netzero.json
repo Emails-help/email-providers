@@ -1,5 +1,7 @@
 {
-  "auth_methods": null,
+    "auth_methods": [
+        "password"
+    ],
     "slug": "netzero",
     "name": "NetZero",
     "domains": [
@@ -24,17 +26,22 @@
             "security_documented": true
         }
     },
-    "username": "Your NetZero Member ID",
-    "authentication": null,
+    "username": "Conflicting instructions: NetZero Member ID or full email address",
+    "authentication": "Use your NetZero email password. Outgoing mail requires sign-in.",
     "notes": [
         "NetZero publishes no IMAP server — POP3 only. Set “Delete email from server” to Never so a second device and webmail can still see your mail.",
         "Webmail is on netzero.net; addresses and mail servers are on netzero.com. A hostname that looks almost right is usually this.",
-        "Outgoing mail needs authentication: tick Require Sign-in on the SMTP server."
+        "Outgoing mail needs authentication: tick Require Sign-in on the SMTP server.",
+        "Username conflict: NetZero POP settings and older Outlook Express/Mac Mail guides specify Member ID without @netzero.com; its Thunderbird and separate manual Mac Mail instructions use the full email address. No automatic username mapping."
     ],
     "undocumented": [],
     "sources": [
         "https://help.netzero.net/support/webmail/wm-email-setup.html",
-        "https://help.netzero.net/support/webmail/mobile/droid.html"
+        "https://help.netzero.net/support/webmail/mobile/droid.html",
+        "https://help.netzero.net/nzhelp/support-home-page/service-help/email/pop-settings/",
+        "https://help.netzero.net/support/email/email-setup-msoex6.html",
+        "https://help.netzero.net/nzhelp/support-home-page/service-help/email/email-setup/",
+        "https://help.netzero.net/support/email/email-setup-macmail.html"
     ],
     "guide": "https://emails.help/netzero/server-settings",
     "verified": "2026-11-02"
