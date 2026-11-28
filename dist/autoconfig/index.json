@@ -17,10 +17,7 @@
     "thunderbird/fastmail.xml",
     "apple/fastmail.mobileconfig"
   ],
-  "frontier": [
-    "thunderbird/frontier.xml",
-    "apple/frontier.mobileconfig"
-  ],
+  "frontier": [],
   "gmail": [
     "thunderbird/gmail.xml",
     "apple/gmail.mobileconfig"
