@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<clientConfig version="1.1">
+  <!-- Emails.help dataset version 1 -->
+  <emailProvider id="aol.com">
+    <domain>aol.com</domain>
+    <displayName>AOL Mail</displayName>
+    <displayShortName>AOL Mail</displayShortName>
+    <incomingServer type="imap">
+      <hostname>imap.aol.com</hostname>
+      <port>993</port>
+      <socketType>SSL</socketType>
+      <username>%EMAILADDRESS%</username>
+      <authentication>password-cleartext</authentication>
+    </incomingServer>
+    <incomingServer type="pop3">
+      <hostname>pop.aol.com</hostname>
+      <port>995</port>
+      <socketType>SSL</socketType>
+      <username>%EMAILADDRESS%</username>
+      <authentication>password-cleartext</authentication>
+    </incomingServer>
+    <outgoingServer type="smtp">
+      <hostname>smtp.aol.com</hostname>
+      <port>465</port>
+      <socketType>SSL</socketType>
+      <username>%EMAILADDRESS%</username>
+      <authentication>password-cleartext</authentication>
+    </outgoingServer>
+  </emailProvider>
+</clientConfig>
