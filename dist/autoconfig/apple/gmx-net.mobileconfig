@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>EmailAccountDescription</key>
+			<string>GMX (gmx.net)</string>
+			<key>EmailAccountType</key>
+			<string>EmailTypeIMAP</string>
+			<key>IncomingMailServerAuthentication</key>
+			<string>EmailAuthPassword</string>
+			<key>IncomingMailServerHostName</key>
+			<string>imap.gmx.net</string>
+			<key>IncomingMailServerPortNumber</key>
+			<integer>993</integer>
+			<key>IncomingMailServerUseSSL</key>
+			<true/>
+			<key>OutgoingMailServerAuthentication</key>
+			<string>EmailAuthPassword</string>
+			<key>OutgoingMailServerHostName</key>
+			<string>mail.gmx.net</string>
+			<key>OutgoingMailServerPortNumber</key>
+			<integer>587</integer>
+			<key>OutgoingMailServerUseSSL</key>
+			<true/>
+			<key>OutgoingPasswordSameAsIncomingPassword</key>
+			<true/>
+			<key>PayloadIdentifier</key>
+			<string>help.emails.gmx-net.imap</string>
+			<key>PayloadType</key>
+			<string>com.apple.mail.managed</string>
+			<key>PayloadUUID</key>
+			<string>8f5a63c1-e38e-59bf-a1f7-f8d390ef73e6</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Emails.help dataset version 1</string>
+	<key>PayloadDisplayName</key>
+	<string>GMX (gmx.net)</string>
+	<key>PayloadIdentifier</key>
+	<string>help.emails.gmx-net.profile</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>de8cca3b-47cf-50a1-9f72-82a65e3486c9</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
