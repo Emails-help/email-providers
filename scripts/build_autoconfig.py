@@ -14,28 +14,22 @@ USERNAME = dict.fromkeys((
     'Your full address, including @verizon.net', 'Your full email address (memberid@juno.com)',
 ), '%EMAILADDRESS%')
 USERNAME['The part of your address before the @'] = '%EMAILLOCALPART%'
-PASSWORD = ('password-cleartext',)
-BOTH = ('OAuth2', 'password-cleartext')
-OAUTH = ('OAuth2',)
-AUTH = {
-    'An app password from your AOL Account Security page — unless your app signs in through AOL’s own sign-in page.': PASSWORD,
-    'A secure mail key (16 characters, created in your AT&T profile) — unless your app signs in with OAuth, where your AT&T password works.': BOTH,
-    'A Yahoo app password — your regular password won’t work in email apps.': PASSWORD,
-    'An app password — Fastmail doesn’t accept your regular password in email apps.': PASSWORD,
-    'Your Frontier email password. The outgoing server requires authentication.': PASSWORD,
-    'Use your app’s “Sign in with Google” option where available. If you use 2-Step Verification and your app can’t sign in with Google, Google suggests an app password.': BOTH,
-    'Your email password — not your GoDaddy account password.': PASSWORD,
-    'Your work or school account password. Turn on “My outgoing server requires authentication” and leave Secure Password Authentication off.': PASSWORD,
-    'The password for your email address. Turn on “My outgoing server requires authentication”.': PASSWORD,
-    'Your Microsoft account password. Outlook.com requires an app that supports Modern Auth (OAuth2).': OAUTH,
-    'Your Spectrum email password. Outgoing mail requires authentication.': PASSWORD,
-    'Use an app that supports OAuth2, or create an AOL app password.': BOTH,
-    'Your Xfinity ID password. Turn on third-party access first: Xfinity Email › Settings › Security › Third Party Access Security.': PASSWORD,
-    'Yahoo asks you to generate an app password for third-party email apps.': PASSWORD,
-    'An app password (type “Mail”) created in your Yandex ID. It’s shown only once.': PASSWORD,
-}
+AUTH_METHODS = frozenset(('password', 'app-password', 'oauth2'))
+PASSWORD_METHODS = frozenset(('password', 'app-password'))
 SOCKET = {'ssl': 'SSL', 'starttls': 'STARTTLS'}
 ACCOUNT = {'imap': 'EmailTypeIMAP', 'pop3': 'EmailTypePOP'}
+
+
+def thunderbird_auth(methods):
+    """Return supported XML methods in preference order, or None for a gap."""
+    if (not isinstance(methods, list) or not methods
+            or any(not isinstance(m, str) or m not in AUTH_METHODS for m in methods)
+            or len(set(methods)) != len(methods)):
+        return None
+    return tuple(method for method, enabled in (
+        ('OAuth2', 'oauth2' in methods),
+        ('password-cleartext', bool(PASSWORD_METHODS.intersection(methods))),
+    ) if enabled)
 
 
 def server_errors(server):
@@ -113,9 +107,10 @@ def generate(providers, version):
         username = USERNAME.get(p.get('username'))
         if username is None:
             reasons.append('username is missing or not in the exact mapping')
-        auth = AUTH.get(p.get('authentication'))
+        methods = p.get('auth_methods')
+        auth = thunderbird_auth(methods)
         if auth is None:
-            reasons.append('authentication is missing or not in the exact mapping')
+            reasons.append('auth_methods is missing, null or invalid')
         incoming, outgoing = [], []
         for protocol, target in (('imap', incoming), ('pop3', incoming), ('smtp', outgoing)):
             server = p.get('outgoing' if protocol == 'smtp' else 'incoming', {}).get(protocol)
@@ -146,7 +141,7 @@ def generate(providers, version):
         path = f'thunderbird/{slug}.xml'
         files[path] = thunderbird(p, version, incoming, outgoing, username, auth)
         index[slug].append(path)
-        if auth == OAUTH:
+        if not PASSWORD_METHODS.intersection(methods):
             skipped.append(f'- `{slug}` Apple: Apple payload has no OAuth authentication value.')
         else:
             path = f'apple/{slug}.mobileconfig'

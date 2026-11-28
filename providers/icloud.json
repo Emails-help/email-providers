@@ -1,4 +1,5 @@
 {
+  "auth_methods": ["app-password"],
     "slug": "icloud",
     "name": "iCloud Mail",
     "domains": [

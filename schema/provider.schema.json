@@ -4,7 +4,7 @@
   "title": "Email provider settings",
   "description": "One email provider's connection settings, with provenance. Every value must be traceable to the provider's own documentation listed in `sources`.",
   "type": "object",
-  "required": ["slug", "name", "domains", "sources"],
+  "required": ["slug", "name", "domains", "sources", "auth_methods"],
   "additionalProperties": false,
   "properties": {
     "slug": {
@@ -56,6 +56,13 @@
     },
     "username": { "type": ["string", "null"] },
     "authentication": { "type": ["string", "null"] },
+    "auth_methods": {
+      "description": "Documented client authentication methods; null means unknown or not applicable. The authentication text and cited first-party sources remain the evidence.",
+      "type": ["array", "null"],
+      "items": { "enum": ["password", "app-password", "oauth2"] },
+      "minItems": 1,
+      "uniqueItems": true
+    },
     "notes": { "type": "array", "items": { "type": "string" } },
     "undocumented": {
       "type": "array",

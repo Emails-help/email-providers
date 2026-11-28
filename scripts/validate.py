@@ -68,6 +68,17 @@ def check(path: pathlib.Path) -> list[str]:
     if has_servers and not data.get("sources"):
         problems.append(f"{path.name}: has server settings but an empty `sources` — every value must cite the provider's own page")
 
+    # Structured authentication is a normalization of sourced text, not a
+    # substitute for that evidence. A null value is an explicit gap.
+    if data.get("auth_methods") is not None:
+        authentication = data.get("authentication")
+        if not isinstance(authentication, str) or not authentication.strip():
+            problems.append(f"{path.name}: auth_methods requires documented authentication text")
+        if not data.get("sources"):
+            problems.append(f"{path.name}: auth_methods requires first-party sources")
+        if data.get("client_access") is False:
+            problems.append(f"{path.name}: auth_methods must be null when client_access is false")
+
     # 4. A guess dressed as a fact. If a server states its encryption
     #    (security is set) then security_documented must be true; if it does
     #    not (security is null) the field it left out should be declared in
